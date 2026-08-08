@@ -41,6 +41,7 @@ function buildWhatsAppMessage(data) {
 
 function initBookingForm(form) {
   const successBox = form.querySelector('.form-success');
+  const successActions = successBox ? successBox.querySelector('.form-success__actions') : null;
   const errorBox = form.querySelector('.form-error');
   const submitBtn = form.querySelector('button[type="submit"]');
 
@@ -86,20 +87,28 @@ function initBookingForm(form) {
       submitBtn.textContent = submitBtn.dataset.originalText || 'Book Appointment';
     }
 
+    const waMessage = buildWhatsAppMessage(formData);
+    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`;
+
+    // Nothing is actually confirmed until the patient sends the WhatsApp
+    // message themselves, so we don't auto-redirect (that's also unreliable --
+    // browsers block window.open() once it's outside a direct click, which is
+    // exactly what happens after an awaited fetch). Instead we show a real
+    // button so the tap itself is the trusted user action.
+    if (successActions) {
+      successActions.innerHTML = `
+        <a href="${waUrl}" target="_blank" rel="noopener" class="btn btn--whatsapp">
+          💬 Confirm on WhatsApp
+        </a>
+      `;
+    }
+
     if (successBox) {
       successBox.classList.add('show');
       successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
-    const waMessage = buildWhatsAppMessage(formData);
-    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`;
-
     form.reset();
-
-    // Give the success message a beat to render before handing off to WhatsApp.
-    setTimeout(() => {
-      window.open(waUrl, '_blank', 'noopener');
-    }, 600);
   });
 }
 
