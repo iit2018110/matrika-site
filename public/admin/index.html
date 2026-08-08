@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin — Matrika Bookings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css" />
+<style>
+  body { background: var(--cream-dark); }
+  .admin-wrap { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+  table { width: 100%; border-collapse: collapse; background: var(--white); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-sm); }
+  th, td { padding: 12px 14px; text-align: left; font-size: 0.88rem; border-bottom: 1px solid #eee2cf; vertical-align: top; }
+  th { background: var(--green); color: var(--white); font-weight: 600; }
+  tr:last-child td { border-bottom: none; }
+  select.status-select { padding: 6px 10px; border-radius: 8px; border: 1px solid #ddd; font-size: 0.85rem; }
+  .status-New { color: #b45309; font-weight: 700; }
+  .status-Contacted { color: #1d4ed8; font-weight: 700; }
+  .status-Confirmed { color: #15803d; font-weight: 700; }
+  .status-Completed { color: #4b5563; font-weight: 700; }
+  .status-Cancelled { color: #b91c1c; font-weight: 700; }
+  .toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
+  .empty { padding: 40px; text-align: center; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="admin-wrap">
+  <div class="toolbar">
+    <h1 style="margin:0;">Bookings — Matrika Homoeopathy</h1>
+    <button class="btn btn--outline btn--sm" onclick="loadBookings()">Refresh</button>
+  </div>
+  <p class="form-note">Self-hosted admin view (only relevant if you're running the Express backend instead of Netlify). Requires the server to be running with basic auth credentials from .env.</p>
+  <div id="table-wrap"></div>
+</div>
+
+<script>
+  const STATUSES = ['New', 'Contacted', 'Confirmed', 'Completed', 'Cancelled'];
+
+  async function loadBookings() {
+    const wrap = document.getElementById('table-wrap');
+    wrap.innerHTML = '<p class="empty">Loading...</p>';
+    try {
+      const res = await fetch('/api/admin/bookings');
+      const data = await res.json();
+      if (!data.ok || !data.bookings.length) {
+        wrap.innerHTML = '<p class="empty">No bookings yet.</p>';
+        return;
+      }
+      renderTable(data.bookings);
+    } catch (err) {
+      wrap.innerHTML = '<p class="empty">Could not load bookings. Is the server running?</p>';
+    }
+  }
+
+  function renderTable(bookings) {
+    const rows = bookings.map((b) => `
+      <tr>
+        <td>#${b.id}</td>
+        <td>${b.name}</td>
+        <td>${b.phone}<br/><span style="color:#999;">${b.email || ''}</span></td>
+        <td>${b.service}</td>
+        <td>${b.preferredDate || '-'}<br/>${b.preferredTime || ''}</td>
+        <td>${b.message || ''}</td>
+        <td class="status-${b.status}">${b.status}</td>
+        <td>${new Date(b.createdAt).toLocaleString()}</td>
+        <td>
+          <select class="status-select" onchange="updateStatus(${b.id}, this.value)">
+            ${STATUSES.map((s) => `<option value="${s}" ${s === b.status ? 'selected' : ''}>${s}</option>`).join('')}
+          </select>
+        </td>
+      </tr>
+    `).join('');
+
+    document.getElementById('table-wrap').innerHTML = `
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th><th>Name</th><th>Contact</th><th>Service</th><th>Preferred</th><th>Notes</th><th>Status</th><th>Received</th><th>Update</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    `;
+  }
+
+  async function updateStatus(id, status) {
+    await fetch(`/api/admin/bookings/${id}/status`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ status })
+    });
+    loadBookings();
+  }
+
+  loadBookings();
+</script>
+</body>
+</html>

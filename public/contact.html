@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact Us | Matrika Homoeopathy</title>
+<meta name="description" content="Get in touch with Matrika Homoeopathy — clinic address, phone, email, and WhatsApp." />
+<link rel="icon" href="images/matrika-logo.jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="brand">
+      <img src="images/matrika-logo.jpeg" alt="Matrika Homoeopathy logo" />
+      <span class="brand__text">
+        <span class="brand__name">Matrika</span>
+        <span class="brand__sub">Homoeopathy</span>
+      </span>
+    </a>
+    <nav class="nav">
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Dr. Puja</a></li>
+        <li><a href="services.html">Conditions We Treat</a></li>
+        <li><a href="booking.html">Book Appointment</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="booking.html" class="btn btn--primary btn--sm">Book Appointment</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Contact</span>
+    <h1>We'd Love to Hear From You</h1>
+    <p style="max-width:560px;margin:0 auto;color:var(--muted);">Reach out with any questions, or book your appointment directly.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container two-col">
+    <div>
+      <span class="badge-pill">Contact Details</span>
+      <h2 style="margin-top:14px;">Clinic Information</h2>
+
+      <div class="info-row">
+        <span class="icon">📍</span>
+        <div>
+          <strong>Clinic Address</strong>
+          <p class="mt-0">[Add clinic address], [City], [State] [PIN Code]</p>
+        </div>
+      </div>
+      <div class="info-row">
+        <span class="icon">📞</span>
+        <div>
+          <strong>Phone</strong>
+          <p class="mt-0"><a href="tel:+917017113182">+91 70171 13182</a></p>
+        </div>
+      </div>
+      <div class="info-row">
+        <span class="icon">💬</span>
+        <div>
+          <strong>WhatsApp</strong>
+          <p class="mt-0"><a href="https://wa.me/917017113182" target="_blank" rel="noopener">Chat with us on WhatsApp</a></p>
+        </div>
+      </div>
+      <div class="info-row">
+        <span class="icon">✉️</span>
+        <div>
+          <strong>Email</strong>
+          <p class="mt-0"><a href="mailto:Matrikahomoeopathy@gmail.com">Matrikahomoeopathy@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="info-row">
+        <span class="icon">🕐</span>
+        <div>
+          <strong>Clinic Hours</strong>
+          <p class="mt-0">Mon – Sat: 10:00 AM – 7:00 PM<br/>Sunday: By appointment only</p>
+        </div>
+      </div>
+
+      <a href="booking.html" class="btn btn--primary" style="margin-top:10px;">Book an Appointment</a>
+    </div>
+
+    <div>
+      <iframe
+        class="map-embed"
+        src="https://www.google.com/maps?q=India&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Matrika Homoeopathy clinic location">
+      </iframe>
+      <p class="form-note text-center" style="margin-top:10px;">Replace the map above with your exact clinic location once the address is added.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--cream-dark">
+  <div class="container" style="max-width:700px;">
+    <div class="section-head">
+      <span class="eyebrow">Quick Message</span>
+      <h2>Send Us a Note</h2>
+      <p>For general questions. To book an appointment with a specific date/time, use the <a href="booking.html" style="color:var(--pink-deep);font-weight:600;">Booking page</a> instead.</p>
+    </div>
+
+    <div class="form-card">
+      <div class="form-success">✅ Thanks for reaching out! We've recorded your message and are opening WhatsApp so you can send it directly.</div>
+      <div class="form-error">Something went wrong. Please try again or message us on WhatsApp.</div>
+
+      <form
+        name="contact-message"
+        method="POST"
+        action="/thank-you.html"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        class="js-booking-form"
+      >
+        <input type="hidden" name="form-name" value="contact-message" />
+        <input type="hidden" name="service" value="General Enquiry" />
+        <p class="hp-field">
+          <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+        </p>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="c-name">Full Name *</label>
+            <input type="text" id="c-name" name="name" required />
+          </div>
+          <div class="field">
+            <label for="c-phone">Phone Number *</label>
+            <input type="tel" id="c-phone" name="phone" required />
+          </div>
+        </div>
+        <div class="field">
+          <label for="c-email">Email Address</label>
+          <input type="email" id="c-email" name="email" />
+        </div>
+        <div class="field">
+          <label for="c-message">Your Message *</label>
+          <textarea id="c-message" name="message" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--block">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="site-footer-placeholder"></footer>
+<a href="https://wa.me/917017113182" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+
+<script src="js/main.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/booking.js"></script>
+</body>
+</html>

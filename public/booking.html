@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Book an Appointment | Matrika Homoeopathy</title>
+<meta name="description" content="Book your homeopathy appointment with Dr. Puja at Matrika Homoeopathy — in-clinic or online consultation." />
+<link rel="icon" href="images/matrika-logo.jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="brand">
+      <img src="images/matrika-logo.jpeg" alt="Matrika Homoeopathy logo" />
+      <span class="brand__text">
+        <span class="brand__name">Matrika</span>
+        <span class="brand__sub">Homoeopathy</span>
+      </span>
+    </a>
+    <nav class="nav">
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Dr. Puja</a></li>
+        <li><a href="services.html">Conditions We Treat</a></li>
+        <li><a href="booking.html">Book Appointment</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="booking.html" class="btn btn--primary btn--sm">Book Appointment</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Book Appointment</span>
+    <h1>Let's Begin Your Healing Journey</h1>
+    <p style="max-width:600px;margin:0 auto;color:var(--muted);">Fill out the form below — we'll save your request and open WhatsApp so you can confirm your slot with us directly.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:800px;">
+    <div class="form-card">
+
+      <div class="form-success">
+        ✅ Thank you! Your appointment request has been recorded. We're opening WhatsApp so you can send us your details directly — please tap send there to confirm.
+      </div>
+      <div class="form-error">
+        Something went wrong saving your request. Please try again, or message us directly on WhatsApp.
+      </div>
+
+      <form
+        name="appointment-booking"
+        method="POST"
+        action="/thank-you.html"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        class="js-booking-form"
+      >
+        <input type="hidden" name="form-name" value="appointment-booking" />
+        <p class="hp-field">
+          <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+        </p>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required />
+          </div>
+          <div class="field">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required />
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" />
+          </div>
+          <div class="field">
+            <label for="service">Consultation Type *</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Select a consultation type</option>
+              <option value="In-Clinic Consultation (New Patient)">In-Clinic — New Patient</option>
+              <option value="In-Clinic Consultation (Follow-up)">In-Clinic — Follow-up</option>
+              <option value="Online Consultation (New Patient)">Online — New Patient</option>
+              <option value="Online Consultation (Follow-up)">Online — Follow-up</option>
+              <option value="General Query">General Query</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="preferredDate">Preferred Date *</label>
+            <input type="date" id="preferredDate" name="preferredDate" required />
+          </div>
+          <div class="field">
+            <label for="preferredTime">Preferred Time *</label>
+            <select id="preferredTime" name="preferredTime" required>
+              <option value="" disabled selected>Select a time slot</option>
+              <option value="10:00 AM - 12:00 PM">10:00 AM – 12:00 PM</option>
+              <option value="12:00 PM - 2:00 PM">12:00 PM – 2:00 PM</option>
+              <option value="2:00 PM - 4:00 PM">2:00 PM – 4:00 PM</option>
+              <option value="4:00 PM - 7:00 PM">4:00 PM – 7:00 PM</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="message">Tell us briefly about your concern</label>
+          <textarea id="message" name="message" placeholder="E.g. recurring headaches for the past 3 months..."></textarea>
+          <small>This helps Dr. Puja prepare for your consultation. You don't need to share everything here.</small>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--block">Book Appointment & Continue on WhatsApp</button>
+        <p class="form-note text-center">By booking, your request is recorded for our records and a WhatsApp chat opens for you to confirm directly with the clinic.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section section--cream-dark">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Prefer to Talk First?</span>
+      <h2>Reach Us Directly</h2>
+    </div>
+    <div class="grid grid--3">
+      <div class="card text-center">
+        <div class="card__icon" style="margin:0 auto 16px;">💬</div>
+        <h3>WhatsApp</h3>
+        <p>Fastest way to reach the clinic.</p>
+        <a href="https://wa.me/917017113182" class="btn btn--whatsapp btn--sm" target="_blank" rel="noopener">Chat Now</a>
+      </div>
+      <div class="card text-center">
+        <div class="card__icon" style="margin:0 auto 16px;">📞</div>
+        <h3>Call Us</h3>
+        <p>Speak with our clinic team.</p>
+        <a href="tel:+917017113182" class="btn btn--outline btn--sm">+91 70171 13182</a>
+      </div>
+      <div class="card text-center">
+        <div class="card__icon" style="margin:0 auto 16px;">✉️</div>
+        <h3>Email</h3>
+        <p>For detailed queries.</p>
+        <a href="mailto:Matrikahomoeopathy@gmail.com" class="btn btn--outline btn--sm">Email Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="site-footer-placeholder"></footer>
+<a href="https://wa.me/917017113182" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+
+<script src="js/main.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/booking.js"></script>
+</body>
+</html>
