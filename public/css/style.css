@@ -461,9 +461,6 @@ p { margin: 0 0 1em; color: var(--text); }
 .form-success { background: #e5f3ea; color: #1f4033; border: 1px solid #bfe2cc; }
 .form-error { background: #fbe4e4; color: #8a2b2b; border: 1px solid #f2bdbd; }
 .form-success.show, .form-error.show { display: block; }
-.form-success__text { margin: 0 0 4px; }
-.form-success__actions { margin-top: 10px; }
-.form-success__actions:empty { margin-top: 0; }
 
 /* honeypot field, hidden from real users */
 .hp-field { position: absolute; left: -9999px; top: -9999px; }
