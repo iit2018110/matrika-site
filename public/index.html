@@ -9,8 +9,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css" />
+<!-- Netlify Identity: lets the login/invite links Dr. Puja receives by email
+     redirect her into the /admin content editor. -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
-<body>
+<body data-page="home">
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on('init', (user) => {
+      if (!user) {
+        window.netlifyIdentity.on('login', () => {
+          document.location.href = '/admin/';
+        });
+      }
+    });
+  }
+</script>
 
 <header class="site-header">
   <div class="site-header__inner">
@@ -38,12 +52,12 @@
 <section class="hero">
   <div class="container hero__grid">
     <div>
-      <span class="hero__tag">Matrika Homoeopathy</span>
-      <h1>Healing from Within, Guided by Nature</h1>
-      <p class="lead">Personalized homeopathic care from Dr. Puja — gentle, individualized treatment for chronic and everyday health concerns, for every member of your family.</p>
+      <span class="hero__tag" data-cms="hero-tagline">Matrika Homoeopathy</span>
+      <h1 data-cms="hero-heading">Healing from Within, Guided by Nature</h1>
+      <p class="lead" data-cms="hero-lead">Personalized homeopathic care from Dr. Puja — gentle, individualized treatment for chronic and everyday health concerns, for every member of your family.</p>
       <div class="hero__actions">
         <a href="booking.html" class="btn btn--primary">Book an Appointment</a>
-        <a href="https://wa.me/917017113182?text=Hello%20Matrika%20Homoeopathy%2C%20I%27d%20like%20to%20know%20more" class="btn btn--whatsapp" target="_blank" rel="noopener">
+        <a href="https://wa.me/917017113182?text=Hello%20Matrika%20Homoeopathy%2C%20I%27d%20like%20to%20know%20more" class="btn btn--whatsapp" data-cms="wa-link" data-wa-message="Hello Matrika Homoeopathy, I'd like to know more" target="_blank" rel="noopener">
           💬 Chat on WhatsApp
         </a>
       </div>
@@ -55,7 +69,7 @@
     </div>
     <div class="hero__photo">
       <img src="images/dr-puja.jpeg" alt="Dr. Puja, Matrika Homoeopathy" />
-      <div class="hero__photo-tag">🌿 Dr. Puja, Homoeopathic Physician</div>
+      <div class="hero__photo-tag" data-cms="photo-tag">🌿 Dr. Puja, Homoeopathic Physician</div>
     </div>
   </div>
 </section>
@@ -70,10 +84,10 @@
     <div class="two-col">
       <img src="images/dr-puja.jpeg" alt="Dr. Puja at her clinic desk" />
       <div>
-        <span class="badge-pill">About Dr. Puja</span>
-        <h3 style="margin-top:14px;">A Thoughtful, Patient-Centered Approach</h3>
-        <p>Dr. Puja believes homeopathy works best as a continuous, honest partnership between doctor and patient. Every case begins with a detailed history — your symptoms, lifestyle, and emotional wellbeing — before arriving at an individualized remedy.</p>
-        <p>She works with patients across acute complaints, chronic conditions, and everyday family health, offering both in-clinic and online consultations.</p>
+        <span class="badge-pill" data-cms="about-preview-badge">About Dr. Puja</span>
+        <h3 style="margin-top:14px;" data-cms="about-preview-heading">A Thoughtful, Patient-Centered Approach</h3>
+        <p data-cms="about-preview-text1">Dr. Puja believes homeopathy works best as a continuous, honest partnership between doctor and patient. Every case begins with a detailed history — your symptoms, lifestyle, and emotional wellbeing — before arriving at an individualized remedy.</p>
+        <p data-cms="about-preview-text2">She works with patients across acute complaints, chronic conditions, and everyday family health, offering both in-clinic and online consultations.</p>
         <a href="about.html" class="btn btn--outline btn--sm">Read Full Bio →</a>
       </div>
     </div>
@@ -87,68 +101,75 @@
       <h2>Comprehensive Homeopathic Care</h2>
       <p>From everyday complaints to long-standing chronic conditions, Matrika offers individualized homeopathic treatment across all age groups.</p>
     </div>
-    <div class="grid grid--4">
+    <div class="grid grid--4" data-cms="home-conditions">
       <div class="card condition-card">
         <div class="card__icon">🌬️</div>
-        <h3>Respiratory</h3>
+        <h3>Respiratory Complaints</h3>
         <ul>
-          <li>Asthma & bronchitis</li>
+          <li>Asthma & chronic bronchitis</li>
           <li>Allergic rhinitis</li>
           <li>Sinusitis</li>
+          <li>Recurrent cough & cold</li>
         </ul>
       </div>
       <div class="card condition-card">
         <div class="card__icon">🍃</div>
-        <h3>Digestive</h3>
+        <h3>Digestive Complaints</h3>
         <ul>
-          <li>IBS & acidity</li>
-          <li>Constipation</li>
-          <li>Gastritis</li>
+          <li>IBS & indigestion</li>
+          <li>Acidity & gastritis</li>
+          <li>Chronic constipation</li>
+          <li>Ulcers</li>
         </ul>
       </div>
       <div class="card condition-card">
         <div class="card__icon">🦴</div>
-        <h3>Joint & Pain</h3>
+        <h3>Joint & Pain Conditions</h3>
         <ul>
-          <li>Arthritis</li>
-          <li>Migraine</li>
-          <li>Back & neck pain</li>
+          <li>Rheumatoid & osteoarthritis</li>
+          <li>Migraine & headaches</li>
+          <li>Back & cervical pain</li>
+          <li>Gout</li>
         </ul>
       </div>
       <div class="card condition-card">
         <div class="card__icon">🌸</div>
         <h3>Women's Health</h3>
         <ul>
-          <li>PCOS & hormonal imbalance</li>
-          <li>Menstrual disorders</li>
+          <li>PCOS / PCOD</li>
+          <li>Menstrual irregularities</li>
+          <li>Hormonal imbalance</li>
           <li>Fertility support</li>
         </ul>
       </div>
       <div class="card condition-card">
         <div class="card__icon">🧴</div>
-        <h3>Skin</h3>
+        <h3>Skin Conditions</h3>
         <ul>
           <li>Eczema & psoriasis</li>
-          <li>Acne</li>
-          <li>Allergies & hives</li>
+          <li>Acne & fungal infections</li>
+          <li>Urticaria / hives</li>
+          <li>Vitiligo</li>
         </ul>
       </div>
       <div class="card condition-card">
         <div class="card__icon">🧠</div>
-        <h3>Mind & Sleep</h3>
+        <h3>Mind & Emotional Wellbeing</h3>
         <ul>
           <li>Anxiety & stress</li>
           <li>Insomnia</li>
-          <li>Emotional wellbeing</li>
+          <li>Mild depression support</li>
+          <li>Phobias</li>
         </ul>
       </div>
       <div class="card condition-card">
         <div class="card__icon">🧒</div>
         <h3>Child Health</h3>
         <ul>
-          <li>Recurrent cold & cough</li>
-          <li>Immunity building</li>
-          <li>Behavioral support</li>
+          <li>Recurrent cold, cough & fever</li>
+          <li>Tonsillitis</li>
+          <li>Growth & immunity support</li>
+          <li>Behavioral concerns</li>
         </ul>
       </div>
       <div class="card condition-card">
@@ -156,8 +177,8 @@
         <h3>Hormonal & Autoimmune</h3>
         <ul>
           <li>Thyroid disorders</li>
-          <li>Lifestyle conditions</li>
-          <li>Long-term monitoring</li>
+          <li>Lifestyle-related conditions</li>
+          <li>Long-term chronic monitoring</li>
         </ul>
       </div>
     </div>
@@ -201,7 +222,7 @@
       <span class="eyebrow">Patient Stories</span>
       <h2>What Our Patients Say</h2>
     </div>
-    <div class="grid grid--3">
+    <div class="grid grid--3" data-cms="home-testimonials">
       <div class="testimonial">
         <div class="testimonial__stars">★★★★★</div>
         <p class="testimonial__quote">"Dr. Puja took the time to understand my whole health history, not just my symptoms. The care and follow-up have been wonderful."</p>
@@ -235,7 +256,7 @@
       <p>Book your appointment online in under a minute, or message us directly on WhatsApp — we'll confirm your slot shortly after.</p>
       <div class="btn-row">
         <a href="booking.html" class="btn btn--pink">Book an Appointment</a>
-        <a href="https://wa.me/917017113182?text=Hello%20Matrika%20Homoeopathy%2C%20I%27d%20like%20to%20book%20an%20appointment" class="btn btn--whatsapp" target="_blank" rel="noopener">💬 WhatsApp Us</a>
+        <a href="https://wa.me/917017113182?text=Hello%20Matrika%20Homoeopathy%2C%20I%27d%20like%20to%20book%20an%20appointment" class="btn btn--whatsapp" data-cms="wa-link" data-wa-message="Hello Matrika Homoeopathy, I'd like to book an appointment" target="_blank" rel="noopener">💬 WhatsApp Us</a>
       </div>
     </div>
   </div>
@@ -243,9 +264,10 @@
 
 <footer class="site-footer" id="site-footer-placeholder"></footer>
 
-<a href="https://wa.me/917017113182" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+<a href="https://wa.me/917017113182" class="whatsapp-float" data-cms="wa-link" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
 
 <script src="js/main.js"></script>
 <script src="js/footer.js"></script>
+<script src="js/content.js"></script>
 </body>
 </html>

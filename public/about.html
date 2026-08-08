@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<body data-page="about">
 
 <header class="site-header">
   <div class="site-header__inner">
@@ -46,13 +46,13 @@
 <section class="section">
   <div class="container">
     <div class="two-col">
-      <img src="images/dr-puja.jpeg" alt="Dr. Puja, Matrika Homoeopathy" />
+      <img src="images/dr-puja.jpeg" alt="Dr. Puja, Matrika Homoeopathy" data-cms="about-photo" />
       <div>
-        <span class="badge-pill">Homoeopathic Physician</span>
-        <h2 style="margin-top:14px;">A Practice Built on Listening</h2>
-        <p>Dr. Puja founded Matrika Homoeopathy with a simple belief: real healing begins when a doctor truly listens. Every consultation starts with a detailed case history — your physical symptoms, daily habits, emotional state, and family history — because homeopathy treats the person, not just the diagnosis.</p>
-        <p>She works with patients of all ages, from young children to seniors, treating both acute complaints and long-standing chronic conditions. Her approach blends classical homeopathic principles with an honest, modern bedside manner: clear communication, realistic expectations, and consistent follow-up.</p>
-        <p>Consultations are available both in-clinic and online, so patients can continue their care wherever they are.</p>
+        <span class="badge-pill" data-cms="about-badge">Homoeopathic Physician</span>
+        <h2 style="margin-top:14px;" data-cms="about-heading">A Practice Built on Listening</h2>
+        <p data-cms="about-bio1">Dr. Puja founded Matrika Homoeopathy with a simple belief: real healing begins when a doctor truly listens. Every consultation starts with a detailed case history — your physical symptoms, daily habits, emotional state, and family history — because homeopathy treats the person, not just the diagnosis.</p>
+        <p data-cms="about-bio2">She works with patients of all ages, from young children to seniors, treating both acute complaints and long-standing chronic conditions. Her approach blends classical homeopathic principles with an honest, modern bedside manner: clear communication, realistic expectations, and consistent follow-up.</p>
+        <p data-cms="about-bio3">Consultations are available both in-clinic and online, so patients can continue their care wherever they are.</p>
       </div>
     </div>
   </div>
@@ -94,20 +94,20 @@
       <div class="card">
         <div class="card__icon">🎓</div>
         <h3>Education</h3>
-        <p>[Add degree, e.g. BHMS] — [Add college/university name]</p>
+        <p data-cms="about-education">[Add degree, e.g. BHMS] — [Add college/university name]</p>
       </div>
       <div class="card">
         <div class="card__icon">🏥</div>
         <h3>Practice</h3>
-        <p>Founder & Lead Physician, Matrika Homoeopathy</p>
+        <p data-cms="about-practice-title">Founder & Lead Physician, Matrika Homoeopathy</p>
       </div>
       <div class="card">
         <div class="card__icon">📚</div>
         <h3>Areas of Focus</h3>
-        <p>Chronic conditions, women's health, pediatric care, skin & respiratory complaints</p>
+        <p data-cms="about-areas-of-focus">Chronic conditions, women's health, pediatric care, skin & respiratory complaints</p>
       </div>
     </div>
-    <p class="text-center form-note" style="margin-top:20px;">Add registration number, years of experience, and any affiliations here for full credibility.</p>
+    <p class="text-center form-note" style="margin-top:20px;" data-cms="about-credentials-note">Add registration number, years of experience, and any affiliations here for full credibility.</p>
   </div>
 </section>
 
@@ -118,16 +118,17 @@
       <p>Book a consultation with Dr. Puja today, in-clinic or online.</p>
       <div class="btn-row">
         <a href="booking.html" class="btn btn--pink">Book an Appointment</a>
-        <a href="https://wa.me/917017113182" class="btn btn--whatsapp" target="_blank" rel="noopener">💬 WhatsApp Us</a>
+        <a href="https://wa.me/917017113182" class="btn btn--whatsapp" data-cms="wa-link" target="_blank" rel="noopener">💬 WhatsApp Us</a>
       </div>
     </div>
   </div>
 </section>
 
 <footer class="site-footer" id="site-footer-placeholder"></footer>
-<a href="https://wa.me/917017113182" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+<a href="https://wa.me/917017113182" class="whatsapp-float" data-cms="wa-link" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
 
 <script src="js/main.js"></script>
 <script src="js/footer.js"></script>
+<script src="js/content.js"></script>
 </body>
 </html>

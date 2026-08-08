@@ -1,24 +1,28 @@
 # Matrika Homoeopathy — Website
 
-Website for Dr. Puja's homeopathy practice, brand name **Matrika**, with an online appointment booking feature.
+Website for Dr. Puja's homeopathy practice, brand name **Matrika**, with online appointment booking and a self-service content editor so Dr. Puja can update site text/images herself.
 
 ## What's in here
 
 ```
-public/              -> the actual website (deploy this folder)
-  index.html          Home
-  about.html           About Dr. Puja
-  services.html         Conditions we treat
-  booking.html           Appointment booking form
-  contact.html             Contact page + quick message form
-  thank-you.html            Fallback confirmation page
-  admin/index.html           Self-hosted admin dashboard (optional, see below)
+public/                    -> the actual website (deploy this folder)
+  index.html                Home
+  about.html                 About Dr. Puja
+  services.html                Conditions we treat
+  booking.html                   Appointment booking form
+  contact.html                     Contact page + quick message form
+  thank-you.html                    Fallback confirmation page
+  admin/                              Content editor (Decap CMS) — Dr. Puja logs in here
+    index.html, config.yml
+  admin-bookings/                    Self-hosted bookings dashboard (optional, see below)
+  content/                           Editable JSON content (edited via /admin, or by hand)
+    settings.json, home.json, about.json, services.json, testimonials.json
   css/style.css
-  js/main.js, booking.js, footer.js
+  js/main.js, footer.js, content.js, booking.js
   images/matrika-logo.jpeg, dr-puja.jpeg
 
-server/               -> OPTIONAL self-hosted backend (only needed if NOT using Netlify)
-netlify.toml          -> Netlify deploy config
+server/                     -> OPTIONAL self-hosted backend (only needed if NOT using Netlify)
+netlify.toml                -> Netlify deploy config
 ```
 
 ## Recommended: deploy to Netlify (free, no server to manage)
@@ -31,17 +35,39 @@ netlify.toml          -> Netlify deploy config
 
 On submit, the site also opens a pre-filled WhatsApp chat so Dr. Puja gets notified instantly and can reply directly to the patient.
 
+## Letting Dr. Puja edit the site herself (`/admin`)
+
+The site now has a built-in content editor at `yoursite.netlify.app/admin` (Decap CMS). It lets her edit, without touching code:
+
+- Contact info, WhatsApp number, clinic hours, address, map, social links (Site Settings)
+- Home page headline/text, About page bio/photo/credentials
+- Conditions treated, consultation types & fees
+- Patient testimonials
+
+Every page falls back to the static text baked into the HTML if a content file is ever missing, so the site can't break from this.
+
+**One-time setup you need to do in the Netlify dashboard** (Claude has no access to your Netlify account, so this part is manual):
+
+1. **Site settings → Identity → Enable Identity.**
+2. Under Identity → **Registration**, set it to **Invite only** (so random people can't sign themselves up).
+3. Under Identity → **Services → Git Gateway**, click **Enable Git Gateway**. This lets the CMS commit changes back to your GitHub repo on Dr. Puja's behalf, without her needing a GitHub account.
+4. Under Identity → **Invite users**, invite Dr. Puja's email address. She'll get an email with a link to set her password.
+5. Push the latest code (including the new `public/admin/`, `public/admin-bookings/`, and `public/content/` folders) to GitHub so Netlify redeploys with the CMS included.
+6. Once she's accepted the invite, she can log in any time at `yoursite.netlify.app/admin`, make edits, and click **Publish** — changes commit to GitHub and the site redeploys automatically (~1 minute).
+
+No further involvement needed from you after that — she edits, the site updates itself.
+
 ## Before going live — replace these placeholders
 
-Search the project for these and swap in real values:
+Easiest to do most of these directly in `/admin` once it's live; a few (like the WhatsApp number format) are safest to double check in code too.
 
-- **WhatsApp number**: `917017113182` appears in `public/js/booking.js` (top of file) and in every `wa.me` link across the HTML pages. Use international format, no `+`, spaces, or leading zero (e.g. `+91 98765 43210` → `919876543210`).
-- **Phone / email**: `+91 70171 13182` and `Matrikahomoeopathy@gmail.com` in `public/js/footer.js`, `contact.html`, `booking.html`.
-- **Clinic address + map**: `contact.html` has a placeholder address and a generic map embed — replace with your real address and a proper Google Maps embed link.
-- **Dr. Puja's bio/credentials**: `about.html` has `[Add degree...]`, `[Add college/university name]` placeholders — fill in her real qualifications, registration number, and years of experience.
-- **Fees**: `services.html` has `[Add fee]` placeholders for in-clinic and online consultations.
-- **Clinic hours**: currently a placeholder guess in the footer — update if different.
-- **Social links**: Instagram/Facebook icons in the footer currently link to `#`.
+- **WhatsApp number**: `917017113182` — editable in `/admin` → Site Settings → WhatsApp Number, or in `public/content/settings.json` directly. International format, no `+`, spaces, or leading zero (e.g. `+91 98765 43210` → `919876543210`).
+- **Phone / email**: editable in `/admin` → Site Settings.
+- **Clinic address + map**: editable in `/admin` → Site Settings (paste a Google Maps "Embed a map" URL).
+- **Dr. Puja's bio/credentials**: editable in `/admin` → About Page. Still has `[Add degree...]` / `[Add college/university name]` placeholders to fill in.
+- **Fees**: editable in `/admin` → Conditions & Consultation Types. Still has `[Add fee]` placeholders.
+- **Clinic hours**: editable in `/admin` → Site Settings.
+- **Social links**: editable in `/admin` → Site Settings.
 
 ## Alternative: self-hosted backend (only if you skip Netlify)
 
@@ -54,15 +80,17 @@ npm start              # runs at http://localhost:3000
 ```
 
 - Bookings are stored in `server/data/bookings.json` (created automatically).
-- Visit `http://localhost:3000/admin` (password-protected via `.env`) to view and update bookings.
+- Visit `http://localhost:3000/admin-bookings` (password-protected via `.env`) to view and update bookings.
 - This needs a host that runs a persistent Node process — **Render, Railway, or Fly.io work; Netlify does not** (Netlify only runs serverless functions with no persistent file storage).
 - If you go this route instead of Netlify Forms, you can remove `data-netlify="true"` and the hidden `form-name` input from the forms, since they won't be needed.
+- Note: the `/admin` path is now used by the Decap CMS content editor (Netlify-only feature). The bookings dashboard lives at `/admin-bookings` to avoid clashing with it.
 
 ## Local preview (either mode)
 
-Since there's no build step, you can just open `public/index.html` directly in a browser to check styling and layout. The booking form's "save" step will only work once you've deployed to Netlify (for tracking) or are running the local `server/` backend — but the WhatsApp handoff works either way.
+Since there's no build step, you can just open `public/index.html` directly in a browser to check styling and layout. The booking form's "save" step will only work once you've deployed to Netlify (for tracking) or are running the local `server/` backend — but the WhatsApp handoff works either way. The `/admin` content editor only works once deployed to Netlify with Identity + Git Gateway enabled (see above) — it won't function when opened locally or before that setup is done.
 
 ## Notes
 
-- The floating WhatsApp button and hero/CTA WhatsApp links all use the same placeholder number — update once, then search-and-replace is easiest.
+- All contact/WhatsApp links across the site now pull from `public/content/settings.json` at page load (via `public/js/content.js`), so updating it once in `/admin` updates every page.
+- The floating WhatsApp button and hero/CTA WhatsApp links all read the same settings value.
 - The third image sent during setup (an illustration of a woman writing, unrelated to homeopathy) was not used anywhere on the site. Let us know if it belongs somewhere.

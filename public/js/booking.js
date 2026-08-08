@@ -8,13 +8,16 @@
  *   3. Open a pre-filled WhatsApp chat with Dr. Puja's clinic so she's
  *      notified instantly, in parallel with the tracked record.
  *
- * TODO before going live: replace WHATSAPP_NUMBER below with the real
- * clinic WhatsApp number, in international format with no "+", spaces,
- * or leading zeros -- e.g. India number +91 98765 43210 becomes
- * "919876543210".
+ * The WhatsApp number is read from content/settings.json (editable via the
+ * /admin CMS) at submit time, with this constant kept only as a fallback
+ * in case that file can't be loaded.
  */
 
-const WHATSAPP_NUMBER = '917017113182'; // TODO: replace with Dr. Puja's real WhatsApp number
+const WHATSAPP_NUMBER_FALLBACK = '917017113182';
+
+function getWhatsAppNumber() {
+  return (window.__matrikaSettings && window.__matrikaSettings.whatsappNumber) || WHATSAPP_NUMBER_FALLBACK;
+}
 
 function encodeFormData(formData) {
   return Array.from(formData.entries())
@@ -92,7 +95,7 @@ function initBookingForm(form) {
     }
 
     const waMessage = buildWhatsAppMessage(formData);
-    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMessage}`;
+    const waUrl = `https://wa.me/${getWhatsAppNumber()}?text=${waMessage}`;
 
     form.reset();
 

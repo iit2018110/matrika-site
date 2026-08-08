@@ -1,0 +1,109 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Where uploaded images go, and how their public URL is built.
+media_folder: "public/images"
+public_folder: "/images"
+
+# Content is edited directly against the JSON files consumed by /public/js/content.js.
+# No draft/review workflow -- saving in the CMS commits straight to "main",
+# so changes go live as soon as Netlify finishes redeploying (usually ~1 minute).
+
+collections:
+  - name: "settings"
+    label: "Contact & Site Settings"
+    files:
+      - name: "general"
+        label: "Contact & Site Settings"
+        file: "public/content/settings.json"
+        fields:
+          - { label: "Phone (displayed)", name: "phone", widget: "string", hint: "e.g. +91 70171 13182" }
+          - { label: "Phone (call link, digits only with +)", name: "phoneTel", widget: "string", hint: "e.g. +917017113182" }
+          - { label: "WhatsApp Number (digits only, no + or spaces)", name: "whatsappNumber", widget: "string", hint: "e.g. 917017113182" }
+          - { label: "Email Address", name: "email", widget: "string" }
+          - { label: "Clinic Address", name: "address", widget: "text" }
+          - { label: "Weekday Hours", name: "hoursWeekday", widget: "string" }
+          - { label: "Sunday Hours", name: "hoursSunday", widget: "string" }
+          - { label: "Google Maps Embed URL", name: "mapEmbedUrl", widget: "string", required: false, hint: "Google Maps > Share > Embed a map > copy the src= URL" }
+          - { label: "Instagram URL", name: "instagramUrl", widget: "string", required: false }
+          - { label: "Facebook URL", name: "facebookUrl", widget: "string", required: false }
+
+  - name: "home"
+    label: "Home Page"
+    files:
+      - name: "home"
+        label: "Home Page Content"
+        file: "public/content/home.json"
+        fields:
+          - { label: "Hero Tagline (small text above headline)", name: "heroTagline", widget: "string" }
+          - { label: "Hero Headline", name: "heroHeading", widget: "string" }
+          - { label: "Hero Description", name: "heroLead", widget: "text" }
+          - { label: "Photo Caption Tag", name: "photoTag", widget: "string" }
+          - { label: "About Preview — Badge", name: "aboutPreviewBadge", widget: "string" }
+          - { label: "About Preview — Heading", name: "aboutPreviewHeading", widget: "string" }
+          - { label: "About Preview — Paragraph 1", name: "aboutPreviewText1", widget: "text" }
+          - { label: "About Preview — Paragraph 2", name: "aboutPreviewText2", widget: "text" }
+
+  - name: "about"
+    label: "About Page"
+    files:
+      - name: "about"
+        label: "About Dr. Puja"
+        file: "public/content/about.json"
+        fields:
+          - { label: "Photo", name: "photo", widget: "image" }
+          - { label: "Badge Text", name: "badge", widget: "string" }
+          - { label: "Heading", name: "heading", widget: "string" }
+          - { label: "Bio — Paragraph 1", name: "bio1", widget: "text" }
+          - { label: "Bio — Paragraph 2", name: "bio2", widget: "text" }
+          - { label: "Bio — Paragraph 3", name: "bio3", widget: "text" }
+          - { label: "Education", name: "education", widget: "string", hint: "e.g. BHMS — XYZ Medical College" }
+          - { label: "Practice Title", name: "practiceTitle", widget: "string" }
+          - { label: "Areas of Focus", name: "areasOfFocus", widget: "string" }
+          - { label: "Credentials Note", name: "credentialsNote", widget: "text", hint: "Registration number, years of experience, affiliations, etc." }
+
+  - name: "services"
+    label: "Conditions & Consultation Types"
+    files:
+      - name: "services"
+        label: "Conditions & Consultation Types"
+        file: "public/content/services.json"
+        fields:
+          - label: "Conditions We Treat"
+            name: "conditions"
+            widget: "list"
+            summary: "{{title}}"
+            fields:
+              - { label: "Icon (emoji)", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                field: { label: "Item", name: "item", widget: "string" }
+          - label: "Consultation Types"
+            name: "consultationTypes"
+            widget: "list"
+            summary: "{{title}}"
+            fields:
+              - { label: "Icon (emoji)", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Duration", name: "duration", widget: "string" }
+              - { label: "Fee", name: "fee", widget: "string", hint: "e.g. ₹800" }
+
+  - name: "testimonials"
+    label: "Testimonials"
+    files:
+      - name: "testimonials"
+        label: "Patient Testimonials"
+        file: "public/content/testimonials.json"
+        fields:
+          - label: "Testimonials"
+            name: "items"
+            widget: "list"
+            summary: "{{name}}"
+            fields:
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Patient Name", name: "name", widget: "string", hint: "e.g. Anita S. (first name + last initial recommended)" }
+              - { label: "Avatar Initial", name: "initial", widget: "string", hint: "Single letter shown in the avatar circle" }

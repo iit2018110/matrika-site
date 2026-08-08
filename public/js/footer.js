@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <p class="footer-note">Healing from within, guided by nature. Personalized homeopathic care from Dr. Puja for the whole family.</p>
           <div class="social-row">
-            <a href="#" aria-label="Instagram">📷</a>
-            <a href="#" aria-label="Facebook">📘</a>
-            <a href="https://wa.me/917017113182" aria-label="WhatsApp">💬</a>
+            <a href="#" data-cms="instagram" aria-label="Instagram">📷</a>
+            <a href="#" data-cms="facebook" aria-label="Facebook">📘</a>
+            <a href="https://wa.me/917017113182" data-cms="wa-link" aria-label="WhatsApp">💬</a>
           </div>
         </div>
         <div>
@@ -32,15 +32,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <h4>Get in Touch</h4>
           <ul>
             <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="tel:+917017113182">+91 70171 13182</a></li>
-            <li><a href="mailto:Matrikahomoeopathy@gmail.com">Matrikahomoeopathy@gmail.com</a></li>
+            <li><a href="tel:+917017113182" data-cms="phone-tel"><span data-cms="phone-text">+91 70171 13182</span></a></li>
+            <li><a href="mailto:Matrikahomoeopathy@gmail.com" data-cms="email-mailto"><span data-cms="email-text">Matrikahomoeopathy@gmail.com</span></a></li>
           </ul>
         </div>
         <div>
           <h4>Clinic Hours</h4>
           <ul>
-            <li>Mon – Sat: 10:00 AM – 7:00 PM</li>
-            <li>Sunday: By appointment only</li>
+            <li data-cms="hours-weekday">Mon – Sat: 10:00 AM – 7:00 PM</li>
+            <li data-cms="hours-sunday">Sunday: By appointment only</li>
             <li>Online consults available daily</li>
           </ul>
         </div>

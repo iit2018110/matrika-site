@@ -24,10 +24,15 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Admin endpoints AND the /admin static page must be auth-protected and
-// registered *before* the general public static middleware below --
-// otherwise express.static would serve public/admin/index.html to anyone
-// without ever checking credentials.
+// Admin endpoints AND the /admin-bookings static page must be auth-protected
+// and registered *before* the general public static middleware below --
+// otherwise express.static would serve public/admin-bookings/index.html to
+// anyone without ever checking credentials.
+//
+// Note: /admin itself is now the Decap CMS content editor (a static page
+// that talks to Netlify Identity + Git Gateway, only functional once
+// deployed on Netlify with Identity enabled). The old bookings dashboard
+// lives at /admin-bookings instead so the two don't collide.
 const adminAuth = basicAuth({
   users: { [process.env.ADMIN_USER || 'admin']: process.env.ADMIN_PASS || 'change-me' },
   challenge: true,
@@ -35,7 +40,7 @@ const adminAuth = basicAuth({
 });
 
 app.use('/api/admin/bookings', adminAuth, adminBookingsRouter);
-app.use('/admin', adminAuth, express.static(path.join(__dirname, '..', 'public', 'admin')));
+app.use('/admin-bookings', adminAuth, express.static(path.join(__dirname, '..', 'public', 'admin-bookings')));
 
 // Public endpoint: create a booking
 app.use('/api/bookings', bookingsRouter);
@@ -47,5 +52,5 @@ app.get('/health', (req, res) => res.json({ ok: true }));
 
 app.listen(PORT, () => {
   console.log(`Matrika backend running at http://localhost:${PORT}`);
-  console.log(`Admin dashboard (if using self-hosted mode): http://localhost:${PORT}/admin`);
+  console.log(`Bookings dashboard (if using self-hosted mode): http://localhost:${PORT}/admin-bookings`);
 });

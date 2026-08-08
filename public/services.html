@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<body data-page="services">
 
 <header class="site-header">
   <div class="site-header__inner">
@@ -45,7 +45,7 @@
 
 <section class="section">
   <div class="container">
-    <div class="grid grid--3">
+    <div class="grid grid--3" data-cms="all-conditions">
 
       <div class="card condition-card">
         <div class="card__icon">🌬️</div>
@@ -154,7 +154,7 @@
       <span class="eyebrow">Consultation Types</span>
       <h2>Choose What Works for You</h2>
     </div>
-    <div class="grid grid--2">
+    <div class="grid grid--2" data-cms="consultation-types">
       <div class="card">
         <div class="card__icon">🏥</div>
         <h3>In-Clinic Consultation</h3>
@@ -175,9 +175,10 @@
 </section>
 
 <footer class="site-footer" id="site-footer-placeholder"></footer>
-<a href="https://wa.me/917017113182" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+<a href="https://wa.me/917017113182" class="whatsapp-float" data-cms="wa-link" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
 
 <script src="js/main.js"></script>
 <script src="js/footer.js"></script>
+<script src="js/content.js"></script>
 </body>
 </html>
