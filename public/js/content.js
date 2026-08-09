@@ -86,6 +86,8 @@ async function renderHome() {
     setText('[data-cms="about-preview-heading"]', home.aboutPreviewHeading);
     setText('[data-cms="about-preview-text1"]', home.aboutPreviewText1);
     setText('[data-cms="about-preview-text2"]', home.aboutPreviewText2);
+    setText('[data-cms="about-preview-quote"]', home.aboutPreviewQuote);
+    setText('[data-cms="about-preview-quote-author"]', home.aboutPreviewQuoteAuthor);
 
     const conditionsWrap = document.querySelector('[data-cms="home-conditions"]');
     if (conditionsWrap && Array.isArray(services.conditions)) {
@@ -116,6 +118,8 @@ async function renderAbout() {
     document.querySelectorAll('[data-cms="about-photo"]').forEach((el) => {
       if (about.photo) el.src = about.photo;
     });
+    setText('[data-cms="about-matrika-meaning-badge"]', about.matrikaMeaningBadge);
+    setText('[data-cms="about-matrika-meaning"]', about.matrikaMeaning);
     setText('[data-cms="about-badge"]', about.badge);
     setText('[data-cms="about-heading"]', about.heading);
     setText('[data-cms="about-bio1"]', about.bio1);

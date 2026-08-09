@@ -49,6 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <span>© ${new Date().getFullYear()} Matrika Homoeopathy. All rights reserved.</span>
         <span>Medical Disclaimer: Information on this site is for educational purposes and does not replace professional medical advice.</span>
       </div>
+      <div class="footer-credit">
+        Website by Vikash Kumar &middot;
+        <a href="mailto:vk042082@gmail.com">Email</a> &middot;
+        <a href="https://wa.me/919935567365" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
     </div>
   `;
 });

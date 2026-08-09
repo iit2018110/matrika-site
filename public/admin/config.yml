@@ -44,6 +44,8 @@ collections:
           - { label: "About Preview — Heading", name: "aboutPreviewHeading", widget: "string" }
           - { label: "About Preview — Paragraph 1", name: "aboutPreviewText1", widget: "text" }
           - { label: "About Preview — Paragraph 2", name: "aboutPreviewText2", widget: "text" }
+          - { label: "About Preview — Quote", name: "aboutPreviewQuote", widget: "text", hint: "Short pull-quote shown in place of a second photo." }
+          - { label: "About Preview — Quote Author", name: "aboutPreviewQuoteAuthor", widget: "string" }
 
   - name: "about"
     label: "About Page"
@@ -53,6 +55,8 @@ collections:
         file: "public/content/about.json"
         fields:
           - { label: "Photo", name: "photo", widget: "image" }
+          - { label: "\"What Matrika Means\" — Badge Text", name: "matrikaMeaningBadge", widget: "string" }
+          - { label: "\"What Matrika Means\" — Text", name: "matrikaMeaning", widget: "text", hint: "Short brand-meaning blurb shown near the top of the About page." }
           - { label: "Badge Text", name: "badge", widget: "string" }
           - { label: "Heading", name: "heading", widget: "string" }
           - { label: "Bio — Paragraph 1", name: "bio1", widget: "text" }
