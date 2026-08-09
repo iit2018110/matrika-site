@@ -14,7 +14,6 @@ public/                    -> the actual website (deploy this folder)
   thank-you.html                    Fallback confirmation page
   admin/                              Content editor (Decap CMS) — Dr. Puja logs in here
     index.html, config.yml
-  admin-bookings/                    Self-hosted bookings dashboard (optional, see below)
   content/                           Editable JSON content (edited via /admin, or by hand)
     settings.json, home.json, about.json, services.json, testimonials.json
   css/style.css
@@ -52,7 +51,7 @@ Every page falls back to the static text baked into the HTML if a content file i
 2. Under Identity → **Registration**, set it to **Invite only** (so random people can't sign themselves up).
 3. Under Identity → **Services → Git Gateway**, click **Enable Git Gateway**. This lets the CMS commit changes back to your GitHub repo on Dr. Puja's behalf, without her needing a GitHub account.
 4. Under Identity → **Invite users**, invite Dr. Puja's email address. She'll get an email with a link to set her password.
-5. Push the latest code (including the new `public/admin/`, `public/admin-bookings/`, and `public/content/` folders) to GitHub so Netlify redeploys with the CMS included.
+5. Push the latest code (including the `public/admin/` and `public/content/` folders) to GitHub so Netlify redeploys with the CMS included.
 6. Once she's accepted the invite, she can log in any time at `yoursite.netlify.app/admin`, make edits, and click **Publish** — changes commit to GitHub and the site redeploys automatically (~1 minute).
 
 No further involvement needed from you after that — she edits, the site updates itself.
@@ -71,7 +70,7 @@ Easiest to do most of these directly in `/admin` once it's live; a few (like the
 
 ## Alternative: self-hosted backend (only if you skip Netlify)
 
-If you'd rather run your own server instead of using Netlify Forms — e.g. you want a custom admin dashboard with a status workflow (New → Contacted → Confirmed → Completed → Cancelled) — the `server/` folder has a small Express app that does this:
+If you'd rather run your own server instead of using Netlify Forms — e.g. you want a status workflow (New → Contacted → Confirmed → Completed → Cancelled) on bookings — the `server/` folder has a small Express app with the API for this:
 
 ```bash
 npm install
@@ -80,10 +79,10 @@ npm start              # runs at http://localhost:3000
 ```
 
 - Bookings are stored in `server/data/bookings.json` (created automatically).
-- Visit `http://localhost:3000/admin-bookings` (password-protected via `.env`) to view and update bookings.
+- The bookings API lives at `http://localhost:3000/api/admin/bookings` (password-protected via `.env`) — list bookings with `GET`, update status with `PATCH /:id/status`. There's no bundled dashboard UI for it; build a small page against this API if you want one.
 - This needs a host that runs a persistent Node process — **Render, Railway, or Fly.io work; Netlify does not** (Netlify only runs serverless functions with no persistent file storage).
 - If you go this route instead of Netlify Forms, you can remove `data-netlify="true"` and the hidden `form-name` input from the forms, since they won't be needed.
-- Note: the `/admin` path is now used by the Decap CMS content editor (Netlify-only feature). The bookings dashboard lives at `/admin-bookings` to avoid clashing with it.
+- Note: the `/admin` path is used by the Decap CMS content editor (Netlify-only feature), so it can't also serve a bookings dashboard.
 
 ## Local preview (either mode)
 

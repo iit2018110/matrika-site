@@ -220,7 +220,7 @@ p { margin: 0 0 1em; color: var(--text); }
     height: calc(100vh - 72px);
   }
   .nav__links.open { transform: translateX(0); }
-  .nav .btn { display: none; }
+  .nav .btn--sm { padding: 8px 14px; font-size: 0.82rem; }
   .nav-toggle { display: block; }
 }
 
