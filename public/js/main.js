@@ -27,4 +27,19 @@ document.addEventListener('DOMContentLoaded', () => {
       a.classList.add('active');
     }
   });
+
+  // Hide the floating WhatsApp bubble once the footer scrolls into view --
+  // otherwise it sits on top of the footer's contact links / disclaimer text
+  // on mobile, where there's no room for it to float clear.
+  const waFloat = document.querySelector('.whatsapp-float');
+  const footer = document.querySelector('.site-footer');
+  if (waFloat && footer) {
+    const updateWaFloatVisibility = () => {
+      const footerTop = footer.getBoundingClientRect().top;
+      waFloat.classList.toggle('is-hidden', footerTop < window.innerHeight);
+    };
+    window.addEventListener('scroll', updateWaFloatVisibility, { passive: true });
+    window.addEventListener('resize', updateWaFloatVisibility);
+    updateWaFloatVisibility();
+  }
 });

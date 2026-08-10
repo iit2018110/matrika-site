@@ -88,6 +88,9 @@ async function renderHome() {
     setText('[data-cms="about-preview-text2"]', home.aboutPreviewText2);
     setText('[data-cms="about-preview-quote"]', home.aboutPreviewQuote);
     setText('[data-cms="about-preview-quote-author"]', home.aboutPreviewQuoteAuthor);
+    document.querySelectorAll('[data-cms="about-preview-photo"]').forEach((el) => {
+      if (home.aboutPreviewPhoto) el.src = home.aboutPreviewPhoto;
+    });
 
     const conditionsWrap = document.querySelector('[data-cms="home-conditions"]');
     if (conditionsWrap && Array.isArray(services.conditions)) {

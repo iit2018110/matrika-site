@@ -44,8 +44,9 @@ collections:
           - { label: "About Preview — Heading", name: "aboutPreviewHeading", widget: "string" }
           - { label: "About Preview — Paragraph 1", name: "aboutPreviewText1", widget: "text" }
           - { label: "About Preview — Paragraph 2", name: "aboutPreviewText2", widget: "text" }
-          - { label: "About Preview — Quote", name: "aboutPreviewQuote", widget: "text", hint: "Short pull-quote shown in place of a second photo." }
+          - { label: "About Preview — Quote", name: "aboutPreviewQuote", widget: "text", hint: "Short pull-quote shown next to Dr. Puja's photo." }
           - { label: "About Preview — Quote Author", name: "aboutPreviewQuoteAuthor", widget: "string" }
+          - { label: "About Preview — Photo", name: "aboutPreviewPhoto", widget: "image", hint: "Small circular photo shown inside the quote card." }
 
   - name: "about"
     label: "About Page"
