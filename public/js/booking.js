@@ -69,6 +69,13 @@ function initBookingForm(form) {
       submitBtn.textContent = 'Booking...';
     }
 
+    // iOS Safari only allows window.open() to succeed when it's called
+    // synchronously inside the user's tap — any await/setTimeout before it
+    // and Safari silently blocks the popup. So we open a blank tab right
+    // now, then redirect that same tab to the real WhatsApp URL once it's
+    // built below.
+    const waWindow = window.open('', '_blank', 'noopener');
+
     const formData = new FormData(form);
 
     try {
@@ -99,10 +106,15 @@ function initBookingForm(form) {
 
     form.reset();
 
-    // Give the success message a beat to render before handing off to WhatsApp.
-    setTimeout(() => {
-      window.open(waUrl, '_blank', 'noopener');
-    }, 600);
+    if (waWindow) {
+      // Tab was already open (from the synchronous call above) — just
+      // point it at the real WhatsApp link now that it's built.
+      waWindow.location.href = waUrl;
+    } else {
+      // Popup was blocked outright (e.g. browser setting) — fall back to
+      // navigating the current tab so the handoff still happens.
+      window.location.href = waUrl;
+    }
   });
 }
 

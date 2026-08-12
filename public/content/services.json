@@ -3,90 +3,47 @@
     {
       "icon": "🌬️",
       "title": "Respiratory Complaints",
-      "items": [
-        "Asthma & chronic bronchitis",
-        "Allergic rhinitis",
-        "Sinusitis",
-        "Recurrent cough & cold"
-      ]
+      "items": ["Asthma & chronic bronchitis", "Allergic rhinitis", "Sinusitis", "Recurrent cough & cold"]
     },
     {
       "icon": "🍃",
       "title": "Digestive Complaints",
-      "items": [
-        "IBS & indigestion",
-        "Acidity & gastritis",
-        "Chronic constipation",
-        "Ulcers"
-      ]
+      "items": ["IBS & indigestion", "Acidity & gastritis", "Chronic constipation", "Ulcers"]
     },
     {
       "icon": "🦴",
       "title": "Joint & Pain Conditions",
-      "items": [
-        "Rheumatoid & osteoarthritis",
-        "Migraine & headaches",
-        "Back & cervical pain",
-        "Gout"
-      ]
+      "items": ["Rheumatoid & osteoarthritis", "Migraine & headaches", "Back & cervical pain", "Gout"]
     },
     {
       "icon": "🌸",
       "title": "Women's Health",
-      "items": [
-        "PCOS / PCOD",
-        "Menstrual irregularities",
-        "Hormonal imbalance",
-        "Fertility support"
-      ]
+      "items": ["PCOS / PCOD", "Menstrual irregularities", "Hormonal imbalance", "Fertility support"]
     },
     {
       "icon": "🧴",
       "title": "Skin Conditions",
-      "items": [
-        "Eczema & psoriasis",
-        "Acne & fungal infections",
-        "Urticaria / hives",
-        "Vitiligo"
-      ]
+      "items": ["Eczema & psoriasis", "Acne & fungal infections", "Urticaria / hives", "Vitiligo"]
     },
     {
       "icon": "🧠",
       "title": "Mind & Emotional Wellbeing",
-      "items": [
-        "Anxiety & stress",
-        "Insomnia",
-        "Mild depression support",
-        "Phobias"
-      ]
+      "items": ["Anxiety & stress", "Insomnia", "Mild depression support", "Phobias"]
     },
     {
       "icon": "🧒",
       "title": "Child Health",
-      "items": [
-        "Recurrent cold, cough & fever",
-        "Tonsillitis",
-        "Growth & immunity support",
-        "Behavioral concerns"
-      ]
+      "items": ["Recurrent cold, cough & fever", "Tonsillitis", "Growth & immunity support", "Behavioral concerns"]
     },
     {
       "icon": "⚖️",
       "title": "Hormonal & Autoimmune",
-      "items": [
-        "Thyroid disorders",
-        "Lifestyle-related conditions",
-        "Long-term chronic monitoring"
-      ]
+      "items": ["Thyroid disorders", "Lifestyle-related conditions", "Long-term chronic monitoring"]
     },
     {
       "icon": "💧",
       "title": "Other Complaints",
-      "items": [
-        "Piles, fissures & fistula",
-        "Hair loss",
-        "General wellness consultations"
-      ]
+      "items": ["Piles, fissures & fistula", "Hair loss", "General wellness consultations"]
     }
   ],
   "consultationTypes": [
@@ -95,14 +52,14 @@
       "title": "In-Clinic Consultation",
       "description": "Visit Matrika Homoeopathy in person for your first detailed case-taking session and follow-ups.",
       "duration": "~40–60 minutes (first visit)",
-      "fee": "₹400"
+      "fee": "[Add fee]"
     },
     {
       "icon": "💻",
       "title": "Online Consultation",
       "description": "Speak with Dr. Puja over video or phone call, with medicines arranged for delivery to your address.",
       "duration": "~30–45 minutes (first visit)",
-      "fee": "₹200"
+      "fee": "[Add fee]"
     }
   ]
 }

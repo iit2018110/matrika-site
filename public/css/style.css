@@ -474,6 +474,51 @@ p { margin: 0 0 1em; color: var(--text); }
   margin-top: 6px;
 }
 
+/* ---------- Long-form questionnaire: choice groups & section titles ---------- */
+.field-title {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--green);
+  margin-bottom: 8px;
+}
+.choice-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+}
+.choice-group label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.92rem;
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 500;
+}
+.choice-group input[type="radio"],
+.choice-group input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--pink-deep);
+  cursor: pointer;
+}
+.form-section-title {
+  margin: 40px 0 4px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(31, 64, 51, 0.1);
+}
+.form-section-title:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+.form-section-sub {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
 .form-success, .form-error {
   border-radius: 14px;
   padding: 18px 20px;
@@ -580,6 +625,7 @@ p { margin: 0 0 1em; color: var(--text); }
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 .whatsapp-float:hover { transform: scale(1.06); }
+.wa-icon { vertical-align: -0.2em; }
 .whatsapp-float.is-hidden {
   opacity: 0;
   transform: scale(0.7);
