@@ -1,5 +1,5 @@
 // Shared footer, injected on every page so it only needs to be edited once.
-// TODO: replace phone / email / address placeholders with Dr. Puja's real details.
+// TODO: replace phone / email / address placeholders with Dr. Pujaa's real details.
 document.addEventListener('DOMContentLoaded', () => {
   const el = document.getElementById('site-footer-placeholder');
   if (!el) return;
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <img src="images/matrika-logo.jpeg" alt="Matrika Homoeopathy logo" />
             <span>Matrika Homoeopathy</span>
           </div>
-          <p class="footer-note">Healing from within, guided by nature. Personalized homeopathic care from Dr. Puja for the whole family.</p>
+          <p class="footer-note">Healing from within, guided by nature. Personalized homeopathic care from Dr. Pujaa for the whole family.</p>
           <div class="social-row">
             <a href="#" data-cms="instagram" aria-label="Instagram">📷</a>
             <a href="#" data-cms="facebook" aria-label="Facebook">📘</a>
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <h4>Explore</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Dr. Puja</a></li>
+            <li><a href="about.html">About Dr. Pujaa</a></li>
             <li><a href="services.html">Conditions We Treat</a></li>
             <li><a href="booking.html">Book Appointment</a></li>
           </ul>

@@ -5,7 +5,7 @@
  *   1. Validate required fields.
  *   2. Submit to Netlify Forms (AJAX) so the booking is captured/tracked
  *      automatically in the Netlify dashboard + email notification.
- *   3. Open a pre-filled WhatsApp chat with Dr. Puja's clinic so she's
+ *   3. Open a pre-filled WhatsApp chat with Dr. Pujaa's clinic so she's
  *      notified instantly, in parallel with the tracked record.
  *
  * The WhatsApp number is read from content/settings.json (editable via the

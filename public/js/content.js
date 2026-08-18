@@ -1,7 +1,7 @@
 /**
  * Matrika content loader.
  *
- * Pulls editable content from /content/*.json (edited by Dr. Puja via the
+ * Pulls editable content from /content/*.json (edited by Dr. Pujaa via the
  * /admin CMS panel, which commits changes back to these files in git) and
  * renders it into the page.
  *
