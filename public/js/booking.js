@@ -27,19 +27,19 @@ function encodeFormData(formData) {
 
 function buildWhatsAppMessage(data) {
   const lines = [
-    'Hello Matrika Homoeopathy, I would like to book an appointment.',
+    'Hello! I would like to book an online consultation with Dr. Pujaa Scinde.',
     '',
     `Name: ${data.get('name') || '-'}`,
     `Age: ${data.get('age') || '-'}`,
-    `City & State: ${data.get('location') || '-'}`,
+    `City and State: ${data.get('location') || '-'}`,
     `Phone: ${data.get('phone') || '-'}`,
     `Service: ${data.get('service') || '-'}`,
     `Preferred date: ${data.get('preferredDate') || '-'}`,
-    `Preferred time: ${data.get('preferredTime') || '-'}`
+    `Preferred consultation time: ${data.get('preferredTime') || '-'}`
   ];
   const message = data.get('message');
   if (message) {
-    lines.push('', `Notes: ${message}`);
+    lines.push(`Health concern: ${message}`);
   }
   return encodeURIComponent(lines.join('\n'));
 }
@@ -76,7 +76,7 @@ function initBookingForm(form) {
     // and Safari silently blocks the popup. So we open a blank tab right
     // now, then redirect that same tab to the real WhatsApp URL once it's
     // built below.
-    const waWindow = window.open('', '_blank', 'noopener');
+    const waWindow = window.open('', '_blank');
 
     const formData = new FormData(form);
 
@@ -111,6 +111,7 @@ function initBookingForm(form) {
     if (waWindow) {
       // Tab was already open (from the synchronous call above) — just
       // point it at the real WhatsApp link now that it's built.
+      try { waWindow.opener = null; } catch (e) {}
       waWindow.location.href = waUrl;
     } else {
       // Popup was blocked outright (e.g. browser setting) — fall back to
