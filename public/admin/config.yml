@@ -18,14 +18,12 @@ collections:
         label: "Contact & Site Settings"
         file: "public/content/settings.json"
         fields:
-          - { label: "Phone (displayed)", name: "phone", widget: "string", hint: "e.g. +91 70171 13182" }
-          - { label: "Phone (call link, digits only with +)", name: "phoneTel", widget: "string", hint: "e.g. +917017113182" }
-          - { label: "WhatsApp Number (digits only, no + or spaces)", name: "whatsappNumber", widget: "string", hint: "e.g. 917017113182" }
+          - { label: "Phone (displayed)", name: "phone", widget: "string", hint: "e.g. +91 87449 57031" }
+          - { label: "Phone (call link, digits only with +)", name: "phoneTel", widget: "string", hint: "e.g. +918744957031" }
+          - { label: "WhatsApp Number (digits only, no + or spaces)", name: "whatsappNumber", widget: "string", hint: "e.g. 918744957031" }
           - { label: "Email Address", name: "email", widget: "string" }
-          - { label: "Clinic Address", name: "address", widget: "text" }
           - { label: "Weekday Hours", name: "hoursWeekday", widget: "string" }
           - { label: "Sunday Hours", name: "hoursSunday", widget: "string" }
-          - { label: "Google Maps Embed URL", name: "mapEmbedUrl", widget: "string", required: false, hint: "Google Maps > Share > Embed a map > copy the src= URL" }
           - { label: "Instagram URL", name: "instagramUrl", widget: "string", required: false }
           - { label: "Facebook URL", name: "facebookUrl", widget: "string", required: false }
 
@@ -63,10 +61,13 @@ collections:
           - { label: "Bio — Paragraph 1", name: "bio1", widget: "text" }
           - { label: "Bio — Paragraph 2", name: "bio2", widget: "text" }
           - { label: "Bio — Paragraph 3", name: "bio3", widget: "text" }
-          - { label: "Education", name: "education", widget: "string", hint: "e.g. BHMS — XYZ Medical College" }
+          - { label: "Education", name: "education", widget: "string", hint: "e.g. BHMS — Aligarh" }
           - { label: "Practice Title", name: "practiceTitle", widget: "string" }
           - { label: "Areas of Focus", name: "areasOfFocus", widget: "string" }
-          - { label: "Credentials Note", name: "credentialsNote", widget: "text", hint: "Registration number, years of experience, affiliations, etc." }
+          - { label: "Education — Details", name: "educationDetail", widget: "text" }
+          - { label: "Practice — Details", name: "practiceDetail", widget: "text" }
+          - { label: "Areas of Focus — Details", name: "areasDetail", widget: "text" }
+          - { label: "Registration Number", name: "registrationNo", widget: "string", hint: "Shown on the About page (e.g. H043847)" }
 
   - name: "services"
     label: "Conditions & Consultation Types"
@@ -94,8 +95,23 @@ collections:
               - { label: "Icon (emoji)", name: "icon", widget: "string" }
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
-              - { label: "Duration", name: "duration", widget: "string" }
-              - { label: "Fee", name: "fee", widget: "string", hint: "e.g. ₹800" }
+              - { label: "Duration", name: "duration", widget: "string", required: false }
+              - { label: "Fee", name: "fee", widget: "string", hint: "e.g. ₹399" }
+
+  - name: "faq"
+    label: "FAQ"
+    files:
+      - name: "faq"
+        label: "Frequently Asked Questions"
+        file: "public/content/faq.json"
+        fields:
+          - label: "Questions"
+            name: "items"
+            widget: "list"
+            summary: "{{question}}"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer", name: "answer", widget: "text" }
 
   - name: "testimonials"
     label: "Testimonials"

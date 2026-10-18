@@ -1,0 +1,60 @@
+{
+  "items": [
+    {
+      "question": "What is Matrika Homoeopathy?",
+      "answer": "Matrika Homoeopathy provides online consultations with Dr. Pujaa Scinde (BHMS), with an emphasis on individualized assessment and patient-centred communication."
+    },
+    {
+      "question": "Do you offer physical consultations?",
+      "answer": "No. All consultations are conducted online. We do not currently offer in-clinic appointments."
+    },
+    {
+      "question": "How do I book an appointment?",
+      "answer": "You can contact us through our website or WhatsApp. We will share available appointment times, the consultation fee, and booking instructions."
+    },
+    {
+      "question": "Will I receive a prescription?",
+      "answer": "A digital prescription may be provided after the consultation if clinically appropriate and permitted under applicable professional requirements."
+    },
+    {
+      "question": "Do you provide medicines?",
+      "answer": "No. We do not sell, dispense, or ship medicines. Patients purchase prescribed medicines independently from a reputable pharmacy or authorized supplier."
+    },
+    {
+      "question": "Are medicines included in the consultation fee?",
+      "answer": "No. The consultation fee covers the consultation service only. Medicine costs and any delivery or pharmacy charges are separate."
+    },
+    {
+      "question": "Can I consult for chronic health concerns?",
+      "answer": "You may discuss long-standing concerns during an online consultation. Some conditions require an in-person examination, diagnostic tests, or specialist assessment."
+    },
+    {
+      "question": "Do you provide follow-ups?",
+      "answer": "Yes, follow-ups may be arranged depending on your needs. Applicable fees and appointment details will be communicated in advance."
+    },
+    {
+      "question": "Can I continue my existing treatment?",
+      "answer": "Please disclose all current medicines and treatments. Do not discontinue or change prescribed medication without consulting the healthcare professional responsible for your care."
+    },
+    {
+      "question": "Is my information confidential?",
+      "answer": "We handle consultation information in accordance with applicable privacy requirements. Please share sensitive medical information only through designated channels."
+    },
+    {
+      "question": "Can I consult from another city or state?",
+      "answer": "Eligibility depends on your location and applicable professional requirements. Please share your location when booking so that eligibility can be confirmed."
+    },
+    {
+      "question": "What if I have a medical emergency?",
+      "answer": "Online consultations are not intended for emergencies. Seek immediate medical attention for severe or urgent symptoms."
+    },
+    {
+      "question": "How soon will I see results?",
+      "answer": "Results vary according to the condition and individual circumstances. No specific outcome or recovery timeline can be guaranteed."
+    },
+    {
+      "question": "How can I contact you?",
+      "answer": "Use the WhatsApp button or contact form on our website for booking enquiries and consultation information."
+    }
+  ]
+}

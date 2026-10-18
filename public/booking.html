@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Book an Appointment | Matrika Homoeopathy</title>
-<meta name="description" content="Book your homeopathy appointment with Dr. Pujaa at Matrika Homoeopathy — in-clinic or online consultation." />
+<meta name="description" content="Book your homeopathy appointment with Dr. Pujaa at Matrika Homoeopathy — online consultation." />
 <link rel="icon" href="images/matrika-logo.jpeg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -26,6 +26,8 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Dr. Pujaa</a></li>
         <li><a href="services.html">Conditions We Treat</a></li>
+        <li><a href="blog.html">Blogs &amp; Guide</a></li>
+        <li><a href="faq.html">FAQ</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <a href="booking.html" class="btn btn--primary btn--sm">Book Appointment</a>
@@ -37,8 +39,8 @@
 <section class="page-hero">
   <div class="container">
     <span class="eyebrow">Book Appointment</span>
-    <h1>Let's Begin Your Healing Journey</h1>
-    <p style="max-width:600px;margin:0 auto;color:var(--muted);">Fill out the form below — we'll save your request and open WhatsApp so you can confirm your slot with us directly.</p>
+    <h1>Book Your Online Consultation</h1>
+    <p style="max-width:600px;margin:0 auto;color:var(--muted);">Consult Dr. Pujaa Scinde (BHMS) online from the comfort of your home. Your health concerns deserve time, attention, and a thoughtful conversation.</p>
   </div>
 </section>
 
@@ -54,10 +56,20 @@
       <div class="card text-center">
         <div class="card__icon" style="margin:0 auto 16px;">🌿</div>
         <h3>Share Your Full Case History</h3>
-        <p>Want Dr. Pujaa to understand your case in depth before your visit? Fill our detailed questionnaire (10-15 mins, optional).</p>
+        <p>Want Dr. Pujaa to understand your case in depth before your consultation? Fill our detailed questionnaire (10-15 mins, optional).</p>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfuMw-vvDILEmNu6jDxTnR6lvyPff0r0ZkQCB44WNrfbSDQ2w/viewform" class="btn btn--outline btn--sm" target="_blank" rel="noopener">Detailed Health Questionnaire</a>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section" style="padding-bottom:0;">
+  <div class="container" style="max-width:800px;">
+    <div class="fee-strip">
+      <div class="fee-strip__item"><span class="fee-strip__label">Online Consultation</span><span class="price">₹399</span></div>
+      <div class="fee-strip__item"><span class="fee-strip__label">Follow-Up <small>(after 2 weeks)</small></span><span class="price">₹199</span></div>
+    </div>
+    <p class="form-note text-center" style="margin-top:12px;">Fees cover the consultation only. Medicines are not included.</p>
   </div>
 </section>
 
@@ -105,12 +117,22 @@
             <label for="service">Consultation Type *</label>
             <select id="service" name="service" required>
               <option value="" disabled selected>Select a consultation type</option>
-              <option value="In-Clinic Consultation (New Patient)">In-Clinic — New Patient</option>
-              <option value="In-Clinic Consultation (Follow-up)">In-Clinic — Follow-up</option>
-              <option value="Online Consultation (New Patient)">Online — New Patient</option>
-              <option value="Online Consultation (Follow-up)">Online — Follow-up</option>
+              <option value="Online Consultation (New Patient) - Rs 399">Online Consultation — ₹399</option>
+              <option value="Online Follow-up Consultation - Rs 199">Follow-Up (after 2 weeks) — ₹199</option>
               <option value="General Query">General Query</option>
             </select>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="age">Age *</label>
+            <input type="number" id="age" name="age" min="0" max="120" placeholder="Your age" required />
+          </div>
+          <div class="field">
+            <label for="location">City &amp; State *</label>
+            <input type="text" id="location" name="location" placeholder="e.g. Pune, Maharashtra" required />
+            <small>Helps us confirm consultation eligibility for your location.</small>
           </div>
         </div>
 
@@ -137,9 +159,49 @@
           <small>This helps Dr. Pujaa prepare for your consultation. You don't need to share everything here.</small>
         </div>
 
+        <div class="field">
+          <label class="consent-check">
+            <input type="checkbox" name="consent" value="Agreed" required />
+            <span>I have read and understood the <a href="consent.html" target="_blank" rel="noopener" style="color:var(--pink-deep);font-weight:600;">Online Consultation Consent &amp; Medical Disclaimer</a> and consent to proceed with an online consultation.</span>
+          </label>
+        </div>
+
         <button type="submit" class="btn btn--primary btn--block">Book Appointment & Continue on WhatsApp</button>
-        <p class="form-note text-center">By booking, your request is recorded for our records and a WhatsApp chat opens for you to confirm directly with the clinic.</p>
+        <p class="form-note text-center">By booking, your request is recorded for our records and a WhatsApp chat opens for you to confirm directly with our team.</p>
       </form>
+    </div>
+  </div>
+</section>
+
+<section class="section section--cream-dark">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">How to Book</span>
+      <h2>Five Simple Steps</h2>
+    </div>
+    <div class="steps steps--5">
+      <div class="step"><h3>Contact Us</h3><p>Reach us through the website or WhatsApp.</p></div>
+      <div class="step"><h3>Share Details</h3><p>Your name, preferred time, and a brief description of your concern.</p></div>
+      <div class="step"><h3>Confirmation</h3><p>Receive confirmation of the appointment and consultation fee.</p></div>
+      <div class="step"><h3>Pay</h3><p>Complete payment using the approved payment method.</p></div>
+      <div class="step"><h3>Join Online</h3><p>Join your consultation at the confirmed time.</p></div>
+    </div>
+    <p class="form-note text-center" style="margin-top:20px;">Please keep your medical reports, previous prescriptions, and current medication details ready.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:800px;">
+    <div class="card">
+      <h3>Payment Policy</h3>
+      <ul class="policy-list">
+        <li>Your appointment is confirmed according to the booking and payment instructions provided.</li>
+        <li>Consultation fees cover the consultation service only.</li>
+        <li>Medicines are not included. Patients purchase prescribed medicines independently from a reputable pharmacy or authorized supplier.</li>
+        <li>Medicine prices, shipping, and pharmacy charges are paid separately to the chosen supplier.</li>
+        <li>Cancellation, rescheduling, and refund requests are handled according to the policy communicated before booking.</li>
+      </ul>
+      <p class="form-note" style="margin-top:14px;"><strong>Before you book:</strong> please provide accurate health information and a reachable contact number. Online consultations may not be appropriate for all medical conditions.</p>
     </div>
   </div>
 </section>
@@ -154,27 +216,27 @@
       <div class="card text-center">
         <div class="card__icon" style="margin:0 auto 16px;"><svg viewBox="0 0 24 24" width="22" height="22" fill="var(--pink-deep)" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.04 21.785h-.01a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741 1.379 1.006-3.649-.29-.401a9.86 9.86 0 0 1-1.51-5.239c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.943c0 2.106.549 4.16 1.595 5.982L0 24l6.335-1.662a11.882 11.882 0 0 0 5.71 1.454h.005c6.582 0 11.942-5.36 11.945-11.944 0-3.191-1.244-6.19-3.502-8.399"/></svg></div>
         <h3>WhatsApp</h3>
-        <p>Fastest way to reach the clinic.</p>
-        <a href="https://wa.me/917017113182" class="btn btn--whatsapp btn--sm" data-cms="wa-link" target="_blank" rel="noopener">Chat Now</a>
+        <p>Fastest way to reach us.</p>
+        <a href="https://wa.me/918744957031" class="btn btn--whatsapp btn--sm" data-cms="wa-link" target="_blank" rel="noopener">Chat Now</a>
       </div>
       <div class="card text-center">
         <div class="card__icon" style="margin:0 auto 16px;">📞</div>
         <h3>Call Us</h3>
-        <p>Speak with our clinic team.</p>
-        <a href="tel:+917017113182" class="btn btn--outline btn--sm" data-cms="phone-tel"><span data-cms="phone-text">+91 70171 13182</span></a>
+        <p>Speak with our team.</p>
+        <a href="tel:+918744957031" class="btn btn--outline btn--sm" data-cms="phone-tel"><span data-cms="phone-text">+91 87449 57031</span></a>
       </div>
       <div class="card text-center">
         <div class="card__icon" style="margin:0 auto 16px;">✉️</div>
         <h3>Email</h3>
         <p>For detailed queries.</p>
-        <a href="mailto:Matrikahomoeopathy@gmail.com" class="btn btn--outline btn--sm" data-cms="email-mailto">Email Us</a>
+        <a href="mailto:matrikahomoeopathy@gmail.com" class="btn btn--outline btn--sm" data-cms="email-mailto">Email Us</a>
       </div>
     </div>
   </div>
 </section>
 
 <footer class="site-footer" id="site-footer-placeholder"></footer>
-<a href="https://wa.me/917017113182" class="whatsapp-float" data-cms="wa-link" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.04 21.785h-.01a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741 1.379 1.006-3.649-.29-.401a9.86 9.86 0 0 1-1.51-5.239c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.943c0 2.106.549 4.16 1.595 5.982L0 24l6.335-1.662a11.882 11.882 0 0 0 5.71 1.454h.005c6.582 0 11.942-5.36 11.945-11.944 0-3.191-1.244-6.19-3.502-8.399"/></svg></a>
+<a href="https://wa.me/918744957031" class="whatsapp-float" data-cms="wa-link" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.04 21.785h-.01a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741 1.379 1.006-3.649-.29-.401a9.86 9.86 0 0 1-1.51-5.239c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.943c0 2.106.549 4.16 1.595 5.982L0 24l6.335-1.662a11.882 11.882 0 0 0 5.71 1.454h.005c6.582 0 11.942-5.36 11.945-11.944 0-3.191-1.244-6.19-3.502-8.399"/></svg></a>
 
 <script src="js/main.js"></script>
 <script src="js/footer.js"></script>

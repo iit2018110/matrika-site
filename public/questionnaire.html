@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Detailed Health Questionnaire | Matrika Homoeopathy</title>
+<meta name="description" content="Share your detailed case history with Dr. Pujaa before your consultation at Matrika Homoeopathy." />
+<link rel="icon" href="images/matrika-logo.jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="questionnaire">
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="index.html" class="brand">
+      <img src="images/matrika-logo.jpeg" alt="Matrika Homoeopathy logo" />
+      <span class="brand__text">
+        <span class="brand__name">Matrika</span>
+        <span class="brand__sub">Homoeopathy</span>
+      </span>
+    </a>
+    <nav class="nav">
+      <ul class="nav__links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Dr. Pujaa</a></li>
+        <li><a href="services.html">Conditions We Treat</a></li>
+        <li><a href="blog.html">Blogs &amp; Guide</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="booking.html" class="btn btn--primary btn--sm">Book Appointment</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Detailed Health Questionnaire</span>
+    <h1>Help Dr. Pujaa Understand Your Case</h1>
+    <p style="max-width:620px;margin:0 auto;color:var(--muted);">This helps Dr. Pujaa understand your case in depth before your consultation. Takes about 10-15 minutes, and is optional — you can also just <a href="booking.html#quick-form" style="color:var(--pink-deep);text-decoration:underline;">book directly</a> instead.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:800px;">
+    <div class="form-card">
+
+      <div class="form-success">
+        ✅ Thank you! Your questionnaire has been recorded. Dr. Pujaa will review it before your consultation.
+      </div>
+      <div class="form-error">
+        Something went wrong saving your response. Please try again, or message us directly on WhatsApp.
+      </div>
+
+      <p class="form-note" style="margin-bottom:28px;"><span style="color:var(--pink-deep);">*</span> Indicates a required question. Everything else is optional — answer what feels relevant.</p>
+
+      <form
+        name="detailed-questionnaire"
+        method="POST"
+        action="/thank-you.html"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="form-name" value="detailed-questionnaire" />
+        <p class="hp-field">
+          <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+        </p>
+
+        <h3 class="form-section-title">Basic Information &amp; Complaint History</h3>
+        <p class="form-section-sub">The essentials Dr. Pujaa needs first: your details, the main complaint, and how it began.</p>
+
+        <div class="field">
+          <label for="q-name">Full Name *</label>
+          <input type="text" id="q-name" name="Full Name" placeholder="Your full name" required />
+        </div>
+
+        <div class="field">
+          <label for="q-age">Age *</label>
+          <input type="text" id="q-age" name="Age" placeholder="e.g. 32" required />
+        </div>
+
+        <div class="field">
+          <label for="q-phone">Phone Number *</label>
+          <input type="tel" id="q-phone" name="Phone Number" placeholder="+91 98765 43210" required />
+        </div>
+
+        <div class="field">
+          <label for="q-complaint">Patient's main complaint *</label>
+          <textarea id="q-complaint" name="Patient's main complaint" placeholder="Describe the main health concern, in your own words" required></textarea>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Duration of main complaint</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Duration of main complaint" value="Less than 1 week"> Less than 1 week</label>
+            <label><input type="radio" name="Duration of main complaint" value="1-4 weeks"> 1-4 weeks</label>
+            <label><input type="radio" name="Duration of main complaint" value="1-6 months"> 1-6 months</label>
+            <label><input type="radio" name="Duration of main complaint" value="6 months - 1 year"> 6 months - 1 year</label>
+            <label><input type="radio" name="Duration of main complaint" value="More than 1 year"> More than 1 year</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="q-increase">Conditions that increase the main complaint</label>
+          <textarea id="q-increase" name="Conditions that increase the main complaint" placeholder="E.g. cold weather, stress, certain foods..."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="q-decrease">Conditions that decrease the main complaint</label>
+          <textarea id="q-decrease" name="Conditions that decrease the main complaint" placeholder="E.g. rest, warmth, pressure, massage..."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="q-associated">Associated other complaints of patient</label>
+          <textarea id="q-associated" name="Associated other complaints" placeholder="Any other complaints alongside the main one"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="q-past">Past history — any accident, surgery, traumatic injury, infection or fevers</label>
+          <textarea id="q-past" name="Past history" placeholder="E.g. surgeries, major illnesses, accidents..."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="q-family">Family history</label>
+          <input type="text" id="q-family" name="Family history" placeholder="E.g. diabetes, thyroid, allergies in the family" />
+        </div>
+
+        <div class="field">
+          <label for="q-addictions">Addictions</label>
+          <input type="text" id="q-addictions" name="Addictions" placeholder="E.g. smoking, alcohol, tea/coffee, tobacco (or 'None')" />
+        </div>
+
+        <div class="field">
+          <span class="field-title">Appetite</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Appetite" value="Increased"> Increased</label>
+            <label><input type="radio" name="Appetite" value="Decreased"> Decreased</label>
+            <label><input type="radio" name="Appetite" value="Normal"> Normal</label>
+            <label><input type="radio" name="Appetite" value="Variable"> Variable</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Thirst</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Thirst" value="Increased"> Increased</label>
+            <label><input type="radio" name="Thirst" value="Decreased"> Decreased</label>
+            <label><input type="radio" name="Thirst" value="Normal"> Normal</label>
+            <label><input type="radio" name="Thirst" value="Thirstless"> Thirstless</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Quantity of water intake per day</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Quantity of water intake per day" value="Less than 1 litre"> Less than 1 litre</label>
+            <label><input type="radio" name="Quantity of water intake per day" value="1-2 litres"> 1-2 litres</label>
+            <label><input type="radio" name="Quantity of water intake per day" value="2-3 litres"> 2-3 litres</label>
+            <label><input type="radio" name="Quantity of water intake per day" value="More than 3 litres"> More than 3 litres</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Intervals of drinking water</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Intervals of drinking water" value="Frequent small sips"> Frequent small sips</label>
+            <label><input type="radio" name="Intervals of drinking water" value="Large quantity at once"> Large quantity at once</label>
+            <label><input type="radio" name="Intervals of drinking water" value="Normal intervals"> Normal intervals</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Food desire or taste preference (sweet, salty, bitter, spicy...)</span>
+          <div class="choice-group">
+            <label><input type="checkbox" name="Food desire or taste preference[]" value="Sweet"> Sweet</label>
+            <label><input type="checkbox" name="Food desire or taste preference[]" value="Salty"> Salty</label>
+            <label><input type="checkbox" name="Food desire or taste preference[]" value="Sour"> Sour</label>
+            <label><input type="checkbox" name="Food desire or taste preference[]" value="Bitter"> Bitter</label>
+            <label><input type="checkbox" name="Food desire or taste preference[]" value="Spicy"> Spicy</label>
+            <label><input type="checkbox" name="Food desire or taste preference[]" value="None in particular"> None in particular</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Food aversions — things you do not like at all</span>
+          <div class="choice-group">
+            <label><input type="checkbox" name="Food aversions[]" value="Milk/Dairy"> Milk/Dairy</label>
+            <label><input type="checkbox" name="Food aversions[]" value="Non-vegetarian food"> Non-vegetarian food</label>
+            <label><input type="checkbox" name="Food aversions[]" value="Sweets"> Sweets</label>
+            <label><input type="checkbox" name="Food aversions[]" value="Fried/oily food"> Fried/oily food</label>
+            <label><input type="checkbox" name="Food aversions[]" value="Spicy food"> Spicy food</label>
+            <label><input type="checkbox" name="Food aversions[]" value="None"> None</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Food intolerance — anything that causes trouble</span>
+          <div class="choice-group">
+            <label><input type="checkbox" name="Food intolerance[]" value="Milk/Dairy"> Milk/Dairy</label>
+            <label><input type="checkbox" name="Food intolerance[]" value="Gluten/Wheat"> Gluten/Wheat</label>
+            <label><input type="checkbox" name="Food intolerance[]" value="Nuts"> Nuts</label>
+            <label><input type="checkbox" name="Food intolerance[]" value="Seafood"> Seafood</label>
+            <label><input type="checkbox" name="Food intolerance[]" value="Eggs"> Eggs</label>
+            <label><input type="checkbox" name="Food intolerance[]" value="None"> None</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Sleeping hours per day</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Sleeping hours per day" value="Less than 5 hours"> Less than 5 hours</label>
+            <label><input type="radio" name="Sleeping hours per day" value="5-6 hours"> 5-6 hours</label>
+            <label><input type="radio" name="Sleeping hours per day" value="6-8 hours"> 6-8 hours</label>
+            <label><input type="radio" name="Sleeping hours per day" value="More than 8 hours"> More than 8 hours</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Position of sleep</span>
+          <div class="choice-group">
+            <label><input type="checkbox" name="Position of sleep[]" value="Back"> Back</label>
+            <label><input type="checkbox" name="Position of sleep[]" value="Side"> Side</label>
+            <label><input type="checkbox" name="Position of sleep[]" value="Stomach/prone"> Stomach/prone</label>
+            <label><input type="checkbox" name="Position of sleep[]" value="Curled up / fetal"> Curled up / fetal</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Character of sleep</span>
+          <div class="choice-group">
+            <label><input type="checkbox" name="Character of sleep[]" value="Sound/deep"> Sound/deep</label>
+            <label><input type="checkbox" name="Character of sleep[]" value="Light/easily disturbed"> Light/easily disturbed</label>
+            <label><input type="checkbox" name="Character of sleep[]" value="Restless"> Restless</label>
+            <label><input type="checkbox" name="Character of sleep[]" value="Talks/walks in sleep"> Talks/walks in sleep</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Do you remember or forget your dreams</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Do you remember or forget your dreams" value="Remember"> Remember</label>
+            <label><input type="radio" name="Do you remember or forget your dreams" value="Forget"> Forget</label>
+            <label><input type="radio" name="Do you remember or forget your dreams" value="Sometimes"> Sometimes</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="q-recurrent-dream">Any recurrent dream</label>
+          <textarea id="q-recurrent-dream" name="Any recurrent dream" placeholder="Describe any dream that repeats"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="q-sleep-disturb">Any sleep disturbances due to dreams</label>
+          <textarea id="q-sleep-disturb" name="Sleep disturbances due to dreams" placeholder="E.g. wakes up frightened, disturbed sleep after a dream..."></textarea>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Perspiration — odour or odourless</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Perspiration - odour" value="Odourless"> Odourless</label>
+            <label><input type="radio" name="Perspiration - odour" value="Offensive odour"> Offensive odour</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Character of perspiration</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Character of perspiration" value="Mild"> Mild</label>
+            <label><input type="radio" name="Character of perspiration" value="Profuse"> Profuse</label>
+            <label><input type="radio" name="Character of perspiration" value="Sticky"> Sticky</label>
+            <label><input type="radio" name="Character of perspiration" value="Offensive smell"> Offensive smell</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Peculiar area of body for perspiration</span>
+          <div class="choice-group">
+            <label><input type="checkbox" name="Peculiar area of perspiration[]" value="Head/scalp"> Head/scalp</label>
+            <label><input type="checkbox" name="Peculiar area of perspiration[]" value="Palms/soles"> Palms/soles</label>
+            <label><input type="checkbox" name="Peculiar area of perspiration[]" value="Armpits"> Armpits</label>
+            <label><input type="checkbox" name="Peculiar area of perspiration[]" value="One-sided"> One-sided</label>
+            <label><input type="checkbox" name="Peculiar area of perspiration[]" value="Whole body"> Whole body</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Bowel character</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Bowel character" value="Regular"> Regular</label>
+            <label><input type="radio" name="Bowel character" value="Constipated"> Constipated</label>
+            <label><input type="radio" name="Bowel character" value="Loose/Diarrhea"> Loose/Diarrhea</label>
+            <label><input type="radio" name="Bowel character" value="Alternating"> Alternating</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Colour of stool</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Colour of stool" value="Yellow"> Yellow</label>
+            <label><input type="radio" name="Colour of stool" value="Green"> Green</label>
+            <label><input type="radio" name="Colour of stool" value="Black/tarry"> Black/tarry</label>
+            <label><input type="radio" name="Colour of stool" value="Pale/clay-coloured"> Pale/clay-coloured</label>
+            <label><input type="radio" name="Colour of stool" value="Normal brown"> Normal brown</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Straining before, during or after stool</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Straining before/during/after stool" value="No straining"> No straining</label>
+            <label><input type="radio" name="Straining before/during/after stool" value="Occasional straining"> Occasional straining</label>
+            <label><input type="radio" name="Straining before/during/after stool" value="Frequent straining"> Frequent straining</label>
+            <label><input type="radio" name="Straining before/during/after stool" value="Feeling of incomplete evacuation"> Feeling of incomplete evacuation</label>
+          </div>
+        </div>
+
+        <h3 class="form-section-title">Physical Symptoms</h3>
+        <p class="form-section-sub">A few more physical details that matter for the case.</p>
+
+        <div class="field">
+          <label for="q-assoc-complaints">Associated complaints</label>
+          <textarea id="q-assoc-complaints" name="Associated complaints (physical)" placeholder="Any other physical complaints"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="q-gastritis">Gastritis or acidity issues</label>
+          <textarea id="q-gastritis" name="Gastritis or acidity issues" placeholder="Describe any gastritis/acidity symptoms"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="q-urination">Any complaints before, during or after urination</label>
+          <textarea id="q-urination" name="Complaints related to urination" placeholder="E.g. burning, frequency, urgency..."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="q-urine-colour">Colour and frequency of urine</label>
+          <input type="text" id="q-urine-colour" name="Colour and frequency of urine" placeholder="E.g. pale yellow, 5-6 times a day" />
+        </div>
+
+        <div class="field">
+          <span class="field-title">Intolerance to cold or hot</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Intolerance to cold or hot" value="Cold"> Cold</label>
+            <label><input type="radio" name="Intolerance to cold or hot" value="Hot"> Hot</label>
+            <label><input type="radio" name="Intolerance to cold or hot" value="Both"> Both</label>
+            <label><input type="radio" name="Intolerance to cold or hot" value="Neither"> Neither</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="q-emotional-upset">Any history of emotional upset like anger, bad news, fight, fear, grief, shock or disappointment</label>
+          <textarea id="q-emotional-upset" name="History of emotional upset" placeholder="Describe any significant emotional event, if relevant"></textarea>
+        </div>
+
+        <h3 class="form-section-title">Emotional &amp; Mental Traits</h3>
+        <p class="form-section-sub">How you tend to think, feel, and react.</p>
+
+        <div class="field">
+          <span class="field-title">Desire for company or solitude</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Desire for company or solitude" value="Company"> Company</label>
+            <label><input type="radio" name="Desire for company or solitude" value="Solitude"> Solitude</label>
+            <label><input type="radio" name="Desire for company or solitude" value="Either"> Either</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Desire for consolation</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Desire for consolation" value="Yes"> Yes</label>
+            <label><input type="radio" name="Desire for consolation" value="No"> No</label>
+            <label><input type="radio" name="Desire for consolation" value="Sometimes"> Sometimes</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Tolerance to contradiction</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Tolerance to contradiction" value="Tolerant"> Tolerant</label>
+            <label><input type="radio" name="Tolerance to contradiction" value="Intolerant"> Intolerant (cannot bear contradiction)</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Reaction to trifles</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Reaction to trifles" value="Easily affected"> Easily affected</label>
+            <label><input type="radio" name="Reaction to trifles" value="Not affected"> Not affected</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="q-anger">Reaction when angry</label>
+          <textarea id="q-anger" name="Reaction when angry" placeholder="Describe how you react when angry"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="q-anxiety">Conditions leading to anxiety</label>
+          <textarea id="q-anxiety" name="Conditions leading to anxiety" placeholder="What situations make you anxious?"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="q-fear">Conditions leading to fear</label>
+          <textarea id="q-fear" name="Conditions leading to fear" placeholder="What are you afraid of?"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="q-suspicion">Conditions leading to suspicion</label>
+          <textarea id="q-suspicion" name="Conditions leading to suspicion" placeholder="Do certain situations make you suspicious of others?"></textarea>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Will power — strong, weak or indecisive</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Will power" value="Strong"> Strong</label>
+            <label><input type="radio" name="Will power" value="Weak"> Weak</label>
+            <label><input type="radio" name="Will power" value="Indecisive"> Indecisive</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Understanding and perception</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Understanding and perception" value="Quick"> Quick</label>
+            <label><input type="radio" name="Understanding and perception" value="Slow"> Slow</label>
+            <label><input type="radio" name="Understanding and perception" value="Average"> Average</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Memory</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Memory" value="Sharp"> Sharp</label>
+            <label><input type="radio" name="Memory" value="Weak"> Weak</label>
+            <label><input type="radio" name="Memory" value="Average"> Average</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="q-forget">Thing which you often forget</label>
+          <input type="text" id="q-forget" name="Thing often forgotten" placeholder="E.g. names, keys, appointments..." />
+        </div>
+
+        <div class="field">
+          <span class="field-title">Nature of mood</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Nature of mood" value="Constant"> Constant</label>
+            <label><input type="radio" name="Nature of mood" value="Changeable"> Changeable</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Nature of living or working</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Nature of living or working" value="Messy"> Messy</label>
+            <label><input type="radio" name="Nature of living or working" value="Perfectionist"> Perfectionist</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Nature of anger reaction</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Nature of anger reaction" value="Mild"> Mild</label>
+            <label><input type="radio" name="Nature of anger reaction" value="Moderate"> Moderate</label>
+            <label><input type="radio" name="Nature of anger reaction" value="Violent"> Violent</label>
+          </div>
+        </div>
+
+        <h3 class="form-section-title">Nature &amp; Temperament</h3>
+        <p class="form-section-sub">Last few questions about your temperament.</p>
+
+        <div class="field">
+          <span class="field-title">Nature — optimistic or pessimistic</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Nature - optimistic or pessimistic" value="Optimistic"> Optimistic</label>
+            <label><input type="radio" name="Nature - optimistic or pessimistic" value="Pessimistic"> Pessimistic</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Nature — introvert or extrovert</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Nature - introvert or extrovert" value="Introvert"> Introvert</label>
+            <label><input type="radio" name="Nature - introvert or extrovert" value="Extrovert"> Extrovert</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Nature — emotional or arrogant</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Nature - emotional or arrogant" value="Emotional"> Emotional</label>
+            <label><input type="radio" name="Nature - emotional or arrogant" value="Arrogant"> Arrogant</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Nature — irritable, nervous or quarrelling</span>
+          <div class="choice-group">
+            <label><input type="checkbox" name="Nature - irritable/nervous/quarrelling[]" value="Irritable"> Irritable</label>
+            <label><input type="checkbox" name="Nature - irritable/nervous/quarrelling[]" value="Nervous"> Nervous</label>
+            <label><input type="checkbox" name="Nature - irritable/nervous/quarrelling[]" value="Quarrelling"> Quarrelling</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Nature — indifferent or lively</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Nature - indifferent or lively" value="Indifferent"> Indifferent</label>
+            <label><input type="radio" name="Nature - indifferent or lively" value="Lively"> Lively</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-title">Restlessness — mental, physical or both</span>
+          <div class="choice-group">
+            <label><input type="radio" name="Restlessness" value="Mental"> Mental</label>
+            <label><input type="radio" name="Restlessness" value="Physical"> Physical</label>
+            <label><input type="radio" name="Restlessness" value="Both"> Both</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--block" style="margin-top:32px;">Submit Questionnaire</button>
+        <p class="form-note text-center">Your responses are recorded for Dr. Pujaa's review before your consultation.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" id="site-footer-placeholder"></footer>
+<a href="https://wa.me/918744957031" class="whatsapp-float" data-cms="wa-link" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.04 21.785h-.01a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741 1.379 1.006-3.649-.29-.401a9.86 9.86 0 0 1-1.51-5.239c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.359.101 11.943c0 2.106.549 4.16 1.595 5.982L0 24l6.335-1.662a11.882 11.882 0 0 0 5.71 1.454h.005c6.582 0 11.942-5.36 11.945-11.944 0-3.191-1.244-6.19-3.502-8.399"/></svg></a>
+
+<script src="js/main.js"></script>
+<script src="js/footer.js"></script>
+<script src="js/content.js"></script>
+</body>
+</html>

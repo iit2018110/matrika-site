@@ -71,37 +71,48 @@
       ]
     },
     {
-      "icon": "⚖️",
-      "title": "Hormonal & Autoimmune",
+      "icon": "🧔",
+      "title": "Male Complaints",
       "items": [
-        "Thyroid disorders",
-        "Lifestyle-related conditions",
-        "Long-term chronic monitoring"
+        "Hair loss",
+        "Sexual health",
+        "Prostate"
       ]
     },
     {
-      "icon": "💧",
-      "title": "Other Complaints",
+      "icon": "🩹",
+      "title": "Anal Complaints",
       "items": [
-        "Piles, fissures & fistula",
-        "Hair loss",
-        "General wellness consultations"
+        "Piles",
+        "Fissures",
+        "Fistula"
+      ]
+    },
+    {
+      "icon": "⚖️",
+      "title": "Autoimmune Complaints",
+      "items": [
+        "Thyroid",
+        "Diabetes",
+        "Lupus",
+        "Fibromyalgia",
+        "Alopecia areata"
       ]
     }
   ],
   "consultationTypes": [
     {
-      "icon": "🏥",
-      "title": "In-Clinic Consultation",
-      "description": "Visit Matrika Homoeopathy in person for your first detailed case-taking session and follow-ups.",
-      "duration": "~40–60 minutes (first visit)",
+      "icon": "💻",
+      "title": "Online Consultation",
+      "description": "Consult Dr. Pujaa Scinde (BHMS) online, from the comfort of your home. Includes a detailed discussion of your symptoms and history.",
+      "duration": "",
       "fee": "₹399"
     },
     {
-      "icon": "💻",
-      "title": "Online Consultation",
-      "description": "Speak with Dr. Pujaa over video or phone call, with medicines arranged for delivery to your address.",
-      "duration": "~30–45 minutes (first visit)",
+      "icon": "🔁",
+      "title": "Follow-Up Consultation",
+      "description": "To review your progress. Available after 2 weeks from your previous consultation.",
+      "duration": "",
       "fee": "₹199"
     }
   ]

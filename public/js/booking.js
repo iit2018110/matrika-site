@@ -13,7 +13,7 @@
  * in case that file can't be loaded.
  */
 
-const WHATSAPP_NUMBER_FALLBACK = '917017113182';
+const WHATSAPP_NUMBER_FALLBACK = '918744957031';
 
 function getWhatsAppNumber() {
   return (window.__matrikaSettings && window.__matrikaSettings.whatsappNumber) || WHATSAPP_NUMBER_FALLBACK;
@@ -30,6 +30,8 @@ function buildWhatsAppMessage(data) {
     'Hello Matrika Homoeopathy, I would like to book an appointment.',
     '',
     `Name: ${data.get('name') || '-'}`,
+    `Age: ${data.get('age') || '-'}`,
+    `City & State: ${data.get('location') || '-'}`,
     `Phone: ${data.get('phone') || '-'}`,
     `Service: ${data.get('service') || '-'}`,
     `Preferred date: ${data.get('preferredDate') || '-'}`,

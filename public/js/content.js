@@ -131,9 +131,29 @@ async function renderAbout() {
     setText('[data-cms="about-education"]', about.education);
     setText('[data-cms="about-practice-title"]', about.practiceTitle);
     setText('[data-cms="about-areas-of-focus"]', about.areasOfFocus);
-    setText('[data-cms="about-credentials-note"]', about.credentialsNote);
+    setText('[data-cms="about-education-detail"]', about.educationDetail);
+    setText('[data-cms="about-practice-detail"]', about.practiceDetail);
+    setText('[data-cms="about-areas-detail"]', about.areasDetail);
+    setText('[data-cms="about-reg-no"]', about.registrationNo);
   } catch (err) {
     console.warn('Matrika: could not load about content, keeping defaults in HTML.', err);
+  }
+}
+
+/* ---------------- FAQ page ---------------- */
+
+async function renderFaq() {
+  const wrap = document.querySelector('[data-cms="faq-items"]');
+  if (!wrap) return;
+  try {
+    const faq = await fetchJSON('content/faq.json');
+    if (Array.isArray(faq.items)) {
+      wrap.innerHTML = faq.items
+        .map((i) => `<details class="faq-item"><summary>${escapeHTML(i.question)}</summary><p>${escapeHTML(i.answer)}</p></details>`)
+        .join('');
+    }
+  } catch (err) {
+    console.warn('Matrika: could not load FAQ content, keeping defaults in HTML.', err);
   }
 }
 
@@ -179,7 +199,7 @@ function consultationTypeCardHTML(t) {
       <div class="card__icon">${escapeHTML(t.icon || '🩺')}</div>
       <h3>${escapeHTML(t.title)}</h3>
       <p>${escapeHTML(t.description)}</p>
-      <p class="form-note">Duration: ${escapeHTML(t.duration)} · ${escapeHTML(t.fee)}</p>
+      <p class="form-note">${t.duration ? 'Duration: ' + escapeHTML(t.duration) + ' · ' : ''}${escapeHTML(t.fee)}</p>
     </div>
   `;
 }
@@ -209,5 +229,6 @@ document.addEventListener('DOMContentLoaded', () => {
   applySettings();
   renderHome();
   renderAbout();
+  renderFaq();
   renderServices();
 });

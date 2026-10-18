@@ -60,7 +60,7 @@ No further involvement needed from you after that — she edits, the site update
 
 Easiest to do most of these directly in `/admin` once it's live; a few (like the WhatsApp number format) are safest to double check in code too.
 
-- **WhatsApp number**: `917017113182` — editable in `/admin` → Site Settings → WhatsApp Number, or in `public/content/settings.json` directly. International format, no `+`, spaces, or leading zero (e.g. `+91 98765 43210` → `919876543210`).
+- **WhatsApp number**: `918744957031` — editable in `/admin` → Site Settings → WhatsApp Number, or in `public/content/settings.json` directly. International format, no `+`, spaces, or leading zero (e.g. `+91 98765 43210` → `919876543210`).
 - **Phone / email**: editable in `/admin` → Site Settings.
 - **Clinic address + map**: editable in `/admin` → Site Settings (paste a Google Maps "Embed a map" URL).
 - **Dr. Puja's bio/credentials**: editable in `/admin` → About Page. Still has `[Add degree...]` / `[Add college/university name]` placeholders to fill in.
