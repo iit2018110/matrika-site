@@ -26,20 +26,30 @@ function encodeFormData(formData) {
 }
 
 function buildWhatsAppMessage(data) {
-  const lines = [
-    'Hello! I would like to book an online consultation with Dr. Pujaa Scinde.',
-    '',
-    `Name: ${data.get('name') || '-'}`,
-    `Age: ${data.get('age') || '-'}`,
-    `City and State: ${data.get('location') || '-'}`,
-    `Phone: ${data.get('phone') || '-'}`,
-    `Service: ${data.get('service') || '-'}`,
-    `Preferred date: ${data.get('preferredDate') || '-'}`,
-    `Preferred consultation time: ${data.get('preferredTime') || '-'}`
-  ];
-  const message = data.get('message');
-  if (message) {
-    lines.push(`Health concern: ${message}`);
+  const isContact = data.get('form-name') === 'contact-message';
+  let lines;
+  if (isContact) {
+    lines = [
+      'Hello Matrika Homoeopathy, I have a question.',
+      '',
+      `Name: ${data.get('name') || '-'}`,
+      `Phone: ${data.get('phone') || '-'}`
+    ];
+    if (data.get('email')) lines.push(`Email: ${data.get('email')}`);
+    lines.push(`Message: ${data.get('message') || '-'}`);
+  } else {
+    lines = [
+      'Hello! I would like to book an online consultation with Dr. Pujaa Scinde.',
+      '',
+      `Your name: ${data.get('name') || '-'}`,
+      `Your age: ${data.get('age') || '-'}`,
+      `Your city and state: ${data.get('location') || '-'}`,
+      `Phone: ${data.get('phone') || '-'}`,
+      `Consultation type: ${data.get('service') || '-'}`,
+      `Preferred date: ${data.get('preferredDate') || '-'}`,
+      `Preferred consultation time: ${data.get('preferredTime') || '-'}`
+    ];
+    if (data.get('message')) lines.push(`Health concern: ${data.get('message')}`);
   }
   return encodeURIComponent(lines.join('\n'));
 }
