@@ -75,59 +75,38 @@ function initBookingForm(form) {
 
     successBox && successBox.classList.remove('show');
     errorBox && errorBox.classList.remove('show');
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.dataset.originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Booking...';
-    }
-
-    // iOS Safari only allows window.open() to succeed when it's called
-    // synchronously inside the user's tap — any await/setTimeout before it
-    // and Safari silently blocks the popup. So we open a blank tab right
-    // now, then redirect that same tab to the real WhatsApp URL once it's
-    // built below.
-    const waWindow = window.open('', '_blank');
 
     const formData = new FormData(form);
+    const waMessage = buildWhatsAppMessage(formData);
+    const waUrl = `https://wa.me/${getWhatsAppNumber()}?text=${waMessage}`;
 
+    // 1) Record the booking with Netlify Forms in the BACKGROUND. We no
+    //    longer wait for it, so WhatsApp opens instantly. keepalive lets the
+    //    request finish even if this page navigates away.
     try {
-      // 1) Captured + tracked via Netlify Forms
-      await fetch('/', {
+      fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encodeFormData(formData)
-      });
+        body: encodeFormData(formData),
+        keepalive: true
+      }).catch((err) => console.warn('Netlify Forms submission failed.', err));
     } catch (err) {
-      // Even if the tracked submission fails (e.g. running locally without
-      // Netlify), we still let the patient reach the clinic on WhatsApp.
-      console.warn('Netlify Forms submission failed, continuing to WhatsApp handoff.', err);
+      console.warn('Netlify Forms submission failed.', err);
     }
 
-    if (submitBtn) {
-      submitBtn.disabled = false;
-      submitBtn.textContent = submitBtn.dataset.originalText || 'Book Appointment';
+    // 2) Open WhatsApp immediately, straight from the tap (so browsers don't
+    //    block it). If a popup blocker stops it, use this tab instead.
+    const waWindow = window.open(waUrl, '_blank');
+    if (!waWindow) {
+      window.location.href = waUrl;
+      return;
     }
 
     if (successBox) {
       successBox.classList.add('show');
       successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-
-    const waMessage = buildWhatsAppMessage(formData);
-    const waUrl = `https://wa.me/${getWhatsAppNumber()}?text=${waMessage}`;
-
     form.reset();
-
-    if (waWindow) {
-      // Tab was already open (from the synchronous call above) — just
-      // point it at the real WhatsApp link now that it's built.
-      try { waWindow.opener = null; } catch (e) {}
-      waWindow.location.href = waUrl;
-    } else {
-      // Popup was blocked outright (e.g. browser setting) — fall back to
-      // navigating the current tab so the handoff still happens.
-      window.location.href = waUrl;
-    }
   });
 }
 
